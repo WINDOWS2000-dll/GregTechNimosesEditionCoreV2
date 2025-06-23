@@ -15,7 +15,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = GTNECoreValues.MODID, version = GTNECoreValues.MOD_VER, name = GTNECoreValues.MOD_NAME, acceptedMinecraftVersions = "[1.12.2]")
+@Mod(
+        modid = GTNECoreValues.MODID,
+        version = GTNECoreValues.MOD_VER,
+        name = GTNECoreValues.MOD_NAME,
+        acceptedMinecraftVersions = "[1.12.2]")
 public class GTNECoreV2 {
 
     public static final Logger LOGGER = LogManager.getLogger(GTNECoreValues.MODID);
