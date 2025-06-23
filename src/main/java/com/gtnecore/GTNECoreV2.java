@@ -12,14 +12,15 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(
-        modid = GTNECoreValues.MODID,
-        version = GTNECoreValues.MOD_VER,
-        name = GTNECoreValues.MOD_NAME,
-        acceptedMinecraftVersions = "[1.12.2]")
+     modid = GTNECoreValues.MODID,
+     version = GTNECoreValues.MOD_VER,
+     name = GTNECoreValues.MOD_NAME,
+     acceptedMinecraftVersions = "[1.12.2]")
 public class GTNECoreV2 {
 
     public static final Logger LOGGER = LogManager.getLogger(GTNECoreValues.MODID);
@@ -34,34 +35,25 @@ public class GTNECoreV2 {
 
     @SubscribeEvent
     // Register recipes here (Remove if not needed)
-    public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-
-    }
+    public void registerRecipes(RegistryEvent.Register<IRecipe> event) {}
 
     @SubscribeEvent
     // Register items here (Remove if not needed)
-    public void registerItems(RegistryEvent.Register<Item> event) {
-
-    }
+    public void registerItems(RegistryEvent.Register<Item> event) {}
 
     @SubscribeEvent
     // Register blocks here (Remove if not needed)
-    public void registerBlocks(RegistryEvent.Register<Block> event) {
-
-    }
+    public void registerBlocks(RegistryEvent.Register<Block> event) {}
 
     @EventHandler
     // load "Do your mod setup. Build whatever data structures you care about." (Remove if not needed)
-    public void init(FMLInitializationEvent event) {
-    }
+    public void init(FMLInitializationEvent event) {}
 
     @EventHandler
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {
-    }
+    public void postInit(FMLPostInitializationEvent event) {}
 
     @EventHandler
     // register server commands in this event handler (Remove if not needed)
-    public void serverStarting(FMLServerStartingEvent event) {
-    }
+    public void serverStarting(FMLServerStartingEvent event) {}
 }

@@ -1,6 +1,5 @@
 package com.gtnecore.common;
 
-import com.gtnecore.GTNECoreValues;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -13,6 +12,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import com.gtnecore.GTNECoreValues;
 
 import java.util.function.Function;
 
@@ -50,15 +51,12 @@ public class CommonProxy {
         /**/
     }
 
-    private static <T extends Block>ItemBlock createItemBlock(T block, Function<T, ItemBlock> producer) {
+    private static <T extends Block> ItemBlock createItemBlock(T block, Function<T, ItemBlock> producer) {
         ItemBlock itemBlock = producer.apply(block);
         itemBlock.setRegistryName(block.getRegistryName());
         return itemBlock;
     }
 
     @SubscribeEvent(priority = EventPriority.NORMAL)
-    public static void registerRecipes(RegistryEvent.Register<IRecipe> recipeRegisterEvent) {
-
-    }
-
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> recipeRegisterEvent) {}
 }

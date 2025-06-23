@@ -1,4 +1,3 @@
 package com.gtnecore.client;
 
-public class ClientProxy {
-}
+public class ClientProxy {}

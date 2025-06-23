@@ -1,4 +1,3 @@
 package com.gtnecore.common;
 
-public class GTNECoreEventHandler {
-}
+public class GTNECoreEventHandler {}

@@ -1,4 +1,3 @@
 package com.gtnecore.Utils;
 
-public class GTNECoreUtils {
-}
+public class GTNECoreUtils {}

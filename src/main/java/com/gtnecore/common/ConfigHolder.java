@@ -1,4 +1,3 @@
 package com.gtnecore.common;
 
-public class ConfigHolder {
-}
+public class ConfigHolder {}
