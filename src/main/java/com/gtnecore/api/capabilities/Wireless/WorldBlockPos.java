@@ -13,19 +13,17 @@ public class WorldBlockPos {
         this.pos = pos;
     }
 
-    //NBTからのデシリアライズ
+    // NBTからのデシリアライズ
     public static WorldBlockPos readFromNBT(NBTTagCompound data) {
         return new WorldBlockPos(
                 data.getInteger("dim"),
                 new BlockPos(
                         data.getInteger("x"),
                         data.getInteger("y"),
-                        data.getInteger("z")
-                )
-        );
+                        data.getInteger("z")));
     }
 
-    //NBTのシリアライズ
+    // NBTのシリアライズ
     public NBTTagCompound writeToNBT() {
         NBTTagCompound data = new NBTTagCompound();
         data.setInteger("dim", dimention);
@@ -36,7 +34,7 @@ public class WorldBlockPos {
         return data;
     }
 
-    //座標取得
+    // 座標取得
     public int getDimention() {
         return dimention;
     }
@@ -63,8 +61,7 @@ public class WorldBlockPos {
     @Override
     public int hashCode() {
         return 31 * dimention + pos.hashCode();
-        //ここでの31はintでありhash値の再計算に用いる定数である
-        //Vec3iを参照
+        // ここでの31はintでありhash値の再計算に用いる定数である
+        // Vec3iを参照
     }
-
 }

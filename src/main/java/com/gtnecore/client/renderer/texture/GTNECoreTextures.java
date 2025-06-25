@@ -1,9 +1,11 @@
 package com.gtnecore.client.renderer.texture;
 
-import com.gtnecore.GTNECoreValues;
-import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
+
+import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
+
+import com.gtnecore.GTNECoreValues;
 
 @Mod.EventBusSubscriber(modid = GTNECoreValues.MODID, value = Side.CLIENT)
 public class GTNECoreTextures {
@@ -35,5 +37,4 @@ public class GTNECoreTextures {
         MULTIPART_WIRELESS_ENERGY_262144x = new SimpleOverlayRenderer("wireless_hatch/overlay_front.262144x");
         MULTIPART_WIRELESS_ENERGY_1048576x = new SimpleOverlayRenderer("wireless_hatch/overlay_front.1048576x");
     }
-
 }

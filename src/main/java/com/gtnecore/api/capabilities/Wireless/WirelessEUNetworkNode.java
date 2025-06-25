@@ -35,7 +35,7 @@ public class WirelessEUNetworkNode {
         return networkownerUUID;
     }
 
-    public int getNetworkID(){
+    public int getNetworkID() {
         return networkID;
     }
 
@@ -66,8 +66,7 @@ public class WirelessEUNetworkNode {
     public synchronized boolean addMachine(World world, BlockPos pos) {
         WorldBlockPos worldBlockPos = new WorldBlockPos(
                 world.provider.getDimension(),
-                pos
-        );
+                pos);
         if (!machines.contains(worldBlockPos)) {
             return machines.add(worldBlockPos);
         }
@@ -99,5 +98,4 @@ public class WirelessEUNetworkNode {
         this.energy = newValue;
         return delta;
     }
-
 }

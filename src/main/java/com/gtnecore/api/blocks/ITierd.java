@@ -11,5 +11,4 @@ public interface ITierd extends IStringSerializable {
     default Object getTier() {
         return this.getName();
     }
-
 }

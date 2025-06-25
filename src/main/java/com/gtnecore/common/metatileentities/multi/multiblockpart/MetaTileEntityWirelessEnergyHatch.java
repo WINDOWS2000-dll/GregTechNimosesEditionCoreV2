@@ -1,12 +1,16 @@
 package com.gtnecore.common.metatileentities.multi.multiblockpart;
 
-import codechicken.lib.render.CCRenderState;
-import codechicken.lib.render.pipeline.IVertexOperation;
-import codechicken.lib.vec.Matrix4;
-import com.gtnecore.api.capabilities.Wireless.WirelessEUNetworkDataBase;
-import com.gtnecore.api.capabilities.Wireless.WirelessEUNetworkNode;
-import com.gtnecore.api.capabilities.impl.EnergyContainerWireless;
-import com.gtnecore.client.renderer.texture.GTNECoreTextures;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
 import gregtech.api.GTValues;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.gui.GuiTextures;
@@ -19,23 +23,24 @@ import gregtech.api.metatileentity.multiblock.IMultiblockAbilityPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockPart;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import org.jetbrains.annotations.NotNull;
-import org.lwjgl.input.Keyboard;
+
+import com.gtnecore.api.capabilities.Wireless.WirelessEUNetworkDataBase;
+import com.gtnecore.api.capabilities.Wireless.WirelessEUNetworkNode;
+import com.gtnecore.api.capabilities.impl.EnergyContainerWireless;
+import com.gtnecore.client.renderer.texture.GTNECoreTextures;
 
 import java.math.BigInteger;
 import java.util.List;
 
-public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockPart implements IMultiblockAbilityPart<IEnergyContainer> {
+import org.jetbrains.annotations.NotNull;
+import org.lwjgl.input.Keyboard;
+
+import codechicken.lib.render.CCRenderState;
+import codechicken.lib.render.pipeline.IVertexOperation;
+import codechicken.lib.vec.Matrix4;
+
+public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockPart
+                                               implements IMultiblockAbilityPart<IEnergyContainer> {
 
     private final int amperage;
 
@@ -59,7 +64,8 @@ public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockP
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity iGregTechTileEntity) {
-        return new MetaTileEntityWirelessEnergyHatch(this.metaTileEntityId, this.getTier(), this.amperage, this.isExport);
+        return new MetaTileEntityWirelessEnergyHatch(this.metaTileEntityId, this.getTier(), this.amperage,
+                this.isExport);
     }
 
     public void setCurrentWirelessID(int id) {
@@ -98,7 +104,6 @@ public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockP
         builder.widget((new AdvancedTextWidget(194, 22, this::addDisplayText, 1677215)).setMaxWidthLimit(162));
 
         return builder.build(this.getHolder(), entityPlayer);
-
     }
 
     private String getValue() {
@@ -235,21 +240,25 @@ public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockP
                                World player,
                                @NotNull List<String> tooltip,
                                boolean advanced) {
-
         String tierName = GTValues.VNF[this.getTier()];
 
         tooltip.add(I18n.format("gtnecore.machine.wireless_energy_hatch.tooltip.1"));
         tooltip.add(I18n.format("gtnecore.machine.wireless_energy_hatch.tooltip.2"));
 
         if (this.isExport) {
-            tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", this.energyContainer.getOutputVoltage(), tierName));
-            tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_out_till", this.energyContainer.getOutputAmperage()));
+            tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", this.energyContainer.getOutputVoltage(),
+                    tierName));
+            tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_out_till",
+                    this.energyContainer.getOutputAmperage()));
         } else {
-            tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", this.energyContainer.getInputVoltage(), tierName));
-            tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_in_till", this.energyContainer.getInputVoltage()));
+            tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", this.energyContainer.getInputVoltage(),
+                    tierName));
+            tooltip.add(
+                    I18n.format("gregtech.universal.tooltip.amperage_in_till", this.energyContainer.getInputVoltage()));
         }
 
-        tooltip.add(I18n.format("gregtech.universal.tooltip.energy_storage_capacity", this,energyContainer.getEnergyCapacity()));
+        tooltip.add(I18n.format("gregtech.universal.tooltip.energy_storage_capacity", this,
+                energyContainer.getEnergyCapacity()));
         tooltip.add(I18n.format("gregtech.universal.enabled"));
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
@@ -257,7 +266,5 @@ public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockP
         } else {
             tooltip.add(I18n.format("gregtech.tooltip.hold_shift"));
         }
-
     }
-
 }

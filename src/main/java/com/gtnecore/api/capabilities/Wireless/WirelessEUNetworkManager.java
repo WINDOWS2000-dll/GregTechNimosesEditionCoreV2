@@ -10,16 +10,16 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class WirelessEUNetworkManager {
 
-    //Singleton Model
+    // Singleton Model
     public static final WirelessEUNetworkManager INSTANCE = new WirelessEUNetworkManager();
     private final ConcurrentHashMap<Integer, Object> networkLocks = new ConcurrentHashMap<>();
 
-    //Get Current Network Model
+    // Get Current Network Model
     private WirelessEUNetworkDataBase getDataBase(World world) {
         return WirelessEUNetworkDataBase.get(world);
     }
 
-    //Create Network
+    // Create Network
     public WirelessEUNetworkNode createNetwork(World world, UUID owner, String name) {
         WirelessEUNetworkDataBase dataBase = WirelessEUNetworkDataBase.get(world);
         int newID = generateUniqueID(dataBase);
@@ -53,7 +53,7 @@ public class WirelessEUNetworkManager {
                 .max().orElse(0) + 1;
     }
 
-    //easier access to Network Manager
+    // easier access to Network Manager
     public BigInteger getEnergy(World world, int networkID) {
         WirelessEUNetworkNode node = WirelessEUNetworkDataBase.get(world).getNetWork(networkID);
         return node != null ? node.getEnergy() : BigInteger.ZERO;
@@ -70,5 +70,4 @@ public class WirelessEUNetworkManager {
         }
         return null;
     }
-
 }

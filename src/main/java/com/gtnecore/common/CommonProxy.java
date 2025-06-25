@@ -1,7 +1,8 @@
 package com.gtnecore.common;
 
-import com.gtnecore.api.capabilities.Wireless.WirelessEUWorldEventHandler;
-import gregtech.common.items.MetaItems;
+import com.gtnecore.common.metatileentities.GTNEMetaTileEntities;
+import gregtech.api.GregTechAPI;
+import gregtech.api.metatileentity.registry.MTEManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -18,7 +19,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import gregtech.common.items.MetaItems;
+
 import com.gtnecore.GTNECoreValues;
+import com.gtnecore.api.capabilities.Wireless.WirelessEUWorldEventHandler;
 
 import java.util.function.Function;
 
@@ -26,6 +30,7 @@ import java.util.function.Function;
 public class CommonProxy {
 
     public static final CreativeTabs GTNECore = new CreativeTabs("gtnecore") {
+
         @Override
         public ItemStack createIcon() {
             return MetaItems.NANO_MAINFRAME_LUV.getStackForm();
@@ -33,7 +38,7 @@ public class CommonProxy {
     };
 
     public void preInit(FMLPreInitializationEvent preInitEvent) {
-        /**/
+        GTNEMetaTileEntities.Initialization();
     }
 
     public void preLoad() {
@@ -60,6 +65,11 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> itemRegisterEvent) {
         /**/
+    }
+
+    @SubscribeEvent
+    public static void registerMTERegistry(MTEManager.MTERegistryEvent event) {
+        GregTechAPI.mteManager.createRegistry(GTNECoreValues.MODID);
     }
 
     @SubscribeEvent

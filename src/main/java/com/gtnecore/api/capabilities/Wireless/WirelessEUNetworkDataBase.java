@@ -26,7 +26,7 @@ public class WirelessEUNetworkDataBase extends WorldSavedData {
         super(name);
     }
 
-    //Load NBT Data
+    // Load NBT Data
     @Override
     public void readFromNBT(NBTTagCompound data) {
         NBTTagList list = data.getTagList("networks", 10);
@@ -35,8 +35,7 @@ public class WirelessEUNetworkDataBase extends WorldSavedData {
             WirelessEUNetworkNode node = new WirelessEUNetworkNode(
                     UUID.fromString(nodeTag.getString("owner")),
                     nodeTag.getInteger("id"),
-                    nodeTag.getString("name")
-            );
+                    nodeTag.getString("name"));
 
             node.setEnergy(new BigInteger(nodeTag.getString("energy")));
             node.setOpen(nodeTag.getBoolean("isOpen"));
@@ -51,7 +50,7 @@ public class WirelessEUNetworkDataBase extends WorldSavedData {
         }
     }
 
-    //Write to NBT Data
+    // Write to NBT Data
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound data) {
         NBTTagList list = new NBTTagList();
@@ -76,12 +75,12 @@ public class WirelessEUNetworkDataBase extends WorldSavedData {
         return data;
     }
 
-    //Data Getter(Thread Safety)
+    // Data Getter(Thread Safety)
     public Map<Integer, WirelessEUNetworkNode> getNetworks() {
         return Collections.unmodifiableMap(networks);
     }
 
-    //Data Access Method (Direct Access)
+    // Data Access Method (Direct Access)
     public void addNetWork(WirelessEUNetworkNode node) {
         networks.put(node.getNetworkID(), node);
         markDirty();
@@ -93,12 +92,12 @@ public class WirelessEUNetworkDataBase extends WorldSavedData {
 
     public static WirelessEUNetworkDataBase get(World world) {
         MapStorage storage = world.getMapStorage();
-        WirelessEUNetworkDataBase instance = (WirelessEUNetworkDataBase) storage.getOrLoadData(WirelessEUNetworkDataBase.class, DATABASE_NAME);
+        WirelessEUNetworkDataBase instance = (WirelessEUNetworkDataBase) storage
+                .getOrLoadData(WirelessEUNetworkDataBase.class, DATABASE_NAME);
         if (instance == null) {
             instance = new WirelessEUNetworkDataBase();
             storage.setData(DATABASE_NAME, instance);
         }
         return instance;
     }
-
 }
