@@ -1,6 +1,5 @@
 package com.gtnecore;
 
-import com.gtnecore.common.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -8,6 +7,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+
+import com.gtnecore.common.CommonProxy;
 
 import org.apache.logging.log4j.Logger;
 
@@ -18,7 +19,9 @@ import org.apache.logging.log4j.Logger;
      acceptedMinecraftVersions = "[1.12.2]")
 public class GTNECoreV2 {
 
-    @SidedProxy(modId = "gtnecore", clientSide = "com.gtnecore.client.ClientProxy", serverSide = "com.gtnecore.common.CommonProxy")
+    @SidedProxy(modId = "gtnecore",
+                clientSide = "com.gtnecore.client.ClientProxy",
+                serverSide = "com.gtnecore.common.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance

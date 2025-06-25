@@ -1,8 +1,5 @@
 package com.gtnecore.common;
 
-import com.gtnecore.common.metatileentities.GTNEMetaTileEntities;
-import gregtech.api.GregTechAPI;
-import gregtech.api.metatileentity.registry.MTEManager;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -19,10 +16,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import gregtech.api.GregTechAPI;
+import gregtech.api.metatileentity.registry.MTEManager;
 import gregtech.common.items.MetaItems;
 
 import com.gtnecore.GTNECoreValues;
 import com.gtnecore.api.capabilities.Wireless.WirelessEUWorldEventHandler;
+import com.gtnecore.common.metatileentities.GTNEMetaTileEntities;
 
 import java.util.function.Function;
 
