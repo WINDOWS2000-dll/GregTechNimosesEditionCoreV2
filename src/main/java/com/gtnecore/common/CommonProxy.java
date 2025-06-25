@@ -1,9 +1,14 @@
 package com.gtnecore.common;
 
+import com.gtnecore.api.capabilities.Wireless.WirelessEUWorldEventHandler;
+import gregtech.common.items.MetaItems;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,6 +25,13 @@ import java.util.function.Function;
 @Mod.EventBusSubscriber(modid = GTNECoreValues.MODID)
 public class CommonProxy {
 
+    public static final CreativeTabs GTNECore = new CreativeTabs("gtnecore") {
+        @Override
+        public ItemStack createIcon() {
+            return MetaItems.NANO_MAINFRAME_LUV.getStackForm();
+        }
+    };
+
     public void preInit(FMLPreInitializationEvent preInitEvent) {
         /**/
     }
@@ -30,6 +42,10 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent initEvent) {
         /**/
+    }
+
+    public static void init() {
+        MinecraftForge.EVENT_BUS.register(new WirelessEUWorldEventHandler());
     }
 
     public void postInit(FMLPostInitializationEvent postInitEvent) {
@@ -58,5 +74,7 @@ public class CommonProxy {
     }
 
     @SubscribeEvent(priority = EventPriority.NORMAL)
-    public static void registerRecipes(RegistryEvent.Register<IRecipe> recipeRegisterEvent) {}
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> recipeRegisterEvent) {
+        /**/
+    }
 }

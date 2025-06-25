@@ -4,7 +4,7 @@ public class GTNECoreValues {
 
     public static final int[] QUBIT = new int[] { 1, 16, 256, 4096, 65536, 1048576, 16777216, 268435456 };
 
-    public static final String MODID = "gtnecorev2",
+    public static final String MODID = "gtnecore",
 
             MODID_GCYM = "gcym",
 

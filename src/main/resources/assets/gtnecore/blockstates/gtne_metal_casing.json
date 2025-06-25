@@ -1,0 +1,58 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "minecraft:cube_all"
+  },
+  "variants": {
+    "variant": {
+      "advanced_precision_assembly_line_casing": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casing/multiblockcasings/advancedprecisionassemblyline/advanced_precision_assembly_line_casing"
+        }
+      },
+      "advanced_precision_assembly_line_filter": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casing/multiblockcasings/advancedprecisionassemblyline/advanced_precision_assembly_line_filter"
+        }
+      },
+      "advanced_precision_assembly_line_control": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casing/multiblockcasings/advancedprecisionassemblyline/advanced_precision_assembly_line_control"
+        }
+      },
+      "advanced_precision_assembly_line": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casing/multiblockcasings/advancedprecisionassemblyline/advanced_precision_assembly_line"
+        }
+      },
+      "electromagnetic_implosion_coil": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casing/multiblockcasings/electromagneticimprosionvomplessor/electromagnetic_implosion_coil"
+        }
+      },
+      "fusion_machine_casing_mk_iv": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casing/multiblockcasings/fusioncasings/fusion_machine_casing_mk_iv"
+        }
+      },
+      "quantium_casing": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casing/metalcasing/quantium_casing"
+        }
+      },
+      "tritanium_casing": {
+        "model": "minecraft:cube_all",
+        "textures": {
+          "all": "gregtech:blocks/casing/metalcasing/tritanium_casing"
+        }
+      }
+    }
+  }
+}

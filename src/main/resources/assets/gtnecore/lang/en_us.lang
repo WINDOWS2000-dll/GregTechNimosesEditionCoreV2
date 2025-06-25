@@ -1,0 +1,237 @@
+# English by GTNE Team
+#I, II, III, IV, V, VI, VII, VIII, IX, X
+#MetaTileEntities
+#Advanced Precision Assembly Line
+tile.gtne_metal_casing.advanced_precision_assembly_line_casing.name=Advanced Precision Assembly Line Casing
+tile.gtne_metal_casing.advanced_precision_assembly_line_filter.name=Advanced Precision Assembly Line Filter
+tile.gtne_metal_casing.advanced_precision_assembly_line_control.name=Advanced Precision Assembly Line Control
+tile.gtne_metal_casing.advanced_precision_assembly_line.name=Advanced Precision Assembly Line
+gtnecore.machine.advanced_precision_assembly_line.name=Advanced Precision Assembly Line
+recipemap.advanced_precision_assembly_line.name=Advanced Precision Assembly Line
+#Components Assembler's
+gtnecore.machine.components_assembler.lv.name=Basic Components Assembler
+gtnecore.machine.components_assembler.mv.name=Advanced Components Assembler
+gtnecore.machine.components_assembler.hv.name=Advanced Components AssemblerII
+gtnecore.machine.components_assembler.ev.name=Advanced Components AssemblerIII
+recipemap.components_assembler.name=Components Assembler
+#High Energy ElectronMagnetic Implosion Compressor
+gtnecore.machine.high_energy_electromagnetic_implosion_compressor.name=High Energy ElectronMagnetic Implosion Compressor
+recipemap.machine.high_energy_electromagnetic_implosion_compressor.name=High Energy ElectronMagnetic Implosion Compressor
+#High Tier Fusion Reactors
+gtnecore.machine.fusion_reactor.uhv.name=Fusion Reactor Computer Mark4
+gtnecore.machine.fusion_reactor.uev.name=Fusion Reactor Computer Mark5
+#HDSCT
+gtnecore.machine.high_dimensional_structure_construction_tesseract.name=High Dimentional Structure Construction Tesseract (HDSCT)
+tile.gtne_hdsct_casing.dimentionally_transcendent_casing.name=Dimentionally Transcendent Casing
+tile.gtne_hdsct_casing.dimentional_bridge.name=Dimentional Bridge Casing
+tile.gtne_hdsct_casing.dimentional_matter_injection_casing.name= Dimentional Matter Injection Casing
+tile.gtne_hdsct_casing.dimentional_stabilisation_field_generator.name=Dimentional Stabilisation Field Generator
+tile.gtne_hdsct_casing.spacetime_containment_field_generator.name=Spacetime Containment Field Generator
+tile.gtne_hdsct_casing.spacetime_dilation_field_generator.name=Spacetime Dilation Field Generator
+recipemap.high_dimensional_structure_construction_tesseract.name=High Dimentional Structure Construction Tesseract
+
+#Cosmic Ray Detector
+gtne.machines.cosmic_ray_detector.name=Cosmic Ray Detector
+gtne.multiblock.cosmic_ray_detector.description=The Cosmic Ray Detector produced Neutronium Mixture based on its height.
+gtne.multiblock.cosmic_ray_detector.tooltip.1=The Cosmic Ray Detector can't see the sky!
+gtne.multiblock.cosmic_ray_detector.tooltip.2=Produces Neutronium Mixture based on the Y-level it is built at.
+gtne.multiblock.cosmic_ray_detector.tooltip.3=At Bedrock it will produce 15 mb/t and at build limit it will produce 50 mb/t.
+gtne.multiblock.cosmic_ray_detector.tooltip.4=Requires a minimum of 500000 EU/t to function.
+gtne.multiblock.cosmic_ray_detector.tooltip.5=Generating %d mb/t of Neutronium Mixture.
+gtne.multiblock.cosmic_ray_detector.tooltip.6=The top Sensor Block needs to be able to see the sky.
+gtne.multiblock.cosmic_ray_detector.tooltip.7=Overclocks increase the production by approximately 150%.
+gtne.multiblock.cosmic_ray_detector.tooltip.8=Output Hatch Full!
+
+#Wireless Energy Hatch
+gtnecore.machine.wireless_energy_hatch.tooltip.1=Stores energy in wireless network, capacity up to 2^(2^31) EU.
+gtnecore.machine.wireless_energy_hatch.tooltip.2=No cables needed, automatically interacts with network to draw/store energy.
+gtnecore.machine.wireless_energy_hatch.tooltip.shift=Select channel in UI, each channel operates independently.
+
+
+#SuperDeepMiner
+gtne.machine.super_deep_miner.config.0=Fluid type set to Lava
+gtne.machine.super_deep_miner.config.1=Fluid type set to Pyrotheum
+gtne.machine.super_deep_miner.config.2=Fluid type set to Helium Plasma
+gtne.machine.super_deep_miner.config.3=Fluid type set to Cosmic Neutronium Plasma
+gtne.recipe.temperature=Temperature: %,dK
+gtne.machine.super_deep_miner.tooltip.1=For obtaining resource deep in §6Under Bedrock§r§7. §aRecipes require scanned Data§r§7.
+gtne.machine.super_deep_miner.tooltip.2=Controller must be placed at §eY=10§r§7 or lower.
+gtne.machine.super_deep_miner.tooltip.3=Use a §bScrewdriver§r§7 to change between §bFluid§r§7 inputs.
+gtne.machine.super_deep_miner.tooltip.4=Accepts §cLava§r§7 (0.75), §6Pyrotheum§r§7 (1.00), §eHelium Plasma§r§7 (4.00), or §8Cosmic Neutronium Plasma§r§7 (16.00) with §bBonuses§r§7 increasing from left to right.
+gtne.machine.super_deep_miner.tooltip.5=Maximum §bTemperature§r§7 depends on §bFluid§r§7 input and §bCoil§r§7 tier.
+gtne.machine.super_deep_miner.tooltip.6=Gains §cHeat§r§7 from §bFluid§r§7 input. Hotter §bFluids§r§7 increases the §bTemperature§r§7 faster.
+gtne.machine.super_deep_miner.tooltip.7=Loses §cHeat§r§7 when not running §lOR§r§7 when there is no heating §bFluids§r§7.
+gtne.machine.super_deep_miner.tooltip.8=For every §b1000K§r§7 above recipe temperature, the recipe duration is multiplied by §e%s§r§7. (Additive)
+gtne.machine.super_deep_miner.tooltip.9=tinko
+gtne.machine.super_deep_miner.tooltip.10=manko
+gtne.machine.super_deep_miner.tooltip.11=§cHeating Fluid§r§7 Consumption is based on §eEnergy Tier§7. (§bHeating Fluids§r§7 are consumed at 10% normal rate at maximum §bTemperature§r§7)
+gregtech.multiblock.super_deep_miner.max.temperature=Max Temperature: %sK
+gregtech.multiblock.super_deep_miner.max.fluid consumption=Fluid Consumption: %smB
+gregtech.multiblock.super_deep_miner_error=§cY LEVEL TOO HIGH! RECIPES WILL NOT RUN!
+
+gregtech.multiblock.universal.vom.temperature=Temperature: %sK
+gregtech.multiblock.universal.vom.max_temperature=Max Temperature: %sK
+
+#SpaceElevator
+gtne.machine.space_elevator.name=§dSpace Elevator
+gtne.machine.space_elevator.max_modules=Maximum Installed modules : %s
+gtne.machine.space_elevator.total_modules=Modules Installed Total : %s
+gtne.machine.space_elevator.modules.none=No Modules Installed!
+gtne.machine.space_elevator.modules=Modules Installed :
+gtne.machine.space_elevator.motor_tier=Motor Tier: %s
+gtne.gui.multiblock.space_elevator_extended=Extension Toggle
+gtne.gui.multiblock.space_elevator_teleport=Travel
+gtne.gui.multiblock.space_elevator.enable_all_modules=Enable All Modules
+gtne.gui.multiblock.space_elevator.disable_all_modules=Disable All Modules
+
+#Mining Module
+space_mining.name=Space Mining
+gtne.jei.space_miner.total_eu=Total: %s
+gtne.jei.space_miner.eut=Usage: %s EU/t (%s)
+gtne.jei.space_miner.duration=Duration: %s secs
+gtne.jei.space_miner.tier=Needs MK-%s Module
+gtne.jei.space_miner.distance=Distance: %s-%s
+gtne.jei.space_miner.size=Size: %s-%s
+gtne.jei.space_miner.cwut=Min. Computation: %s CWU/t
+gtne.jei.space_miner.weight=Weight: %s
+
+gtne.gui.mining_module.distance=Distance:
+gtne.gui.mining_module.range=Range:
+gtne.gui.mining_module.step=Step:
+gtne.gui.mining_module.cycle=Steps Through Distance per Operation by set Step
+gtne.gui.mining_module.parallel=Parallel:
+gtne.gui.mining_module.blank_name=<Material to Add>
+gtne.gui.mining_module.blank_name_remove=<Material to Remove>
+gtne.gui.mining_module.whitelist=Whitelist:
+gtne.gui.mining_module.blacklist=Blacklist:
+gtne.gui.mining_module.remove=Remove:
+gtne.gui.mining_module.whitelist_empty=Whitelist Empty!
+gtne.gui.mining_module.blacklist_empty=Blacklist Empty!
+gtne.gui.mining_module.whitelist_cleared=Whitelist Cleared!
+gtne.gui.mining_module.blacklist_cleared=Blacklist Cleared!
+gtne.gui.mining_module.print_whitelist_or_clear=Shows Current Whitelist/Blacklist, Shift-Click to Clear the List
+gtne.gui.mining_module.change_whitelist_mode=Changes Between Whitelist/Blacklist Modes
+
+#information text
+
+
+#Shift
+gtnecore.tooltip.hold_shift=Hold §aShift§7 for more info
+
+#Machine Casing
+#Fusion Reactor
+tile.gtne_metal_casing.fusion_machine_casing_mk_iv.name=Fusion Machine Casing MK IV
+
+#Computer Casing Tooltip
+tile.compution_casing.tooltip.operation_speed=Base Operation Speed : §e%,d/s
+gtne.recipe.operation_speed=Operation Speed: %,d/s (%s)
+
+#Coils
+tile.gtne_metal_casing.electromagnetic_implosion_coil.name=ElectroMagnetic Implosion Coil
+tile.gtne_wire_coil.draconium.name=Draconium Coil Block
+tile.gtne_wire_coil.awakeneddraconium.name=Awakened Draconium Coil Block
+#Glass Tooltip
+tile.borosilicateglass.tooltip_glasstier=Glass Tier %s
+#Items
+metaitem.stainless_steel_bars.name=Stainless Steel Bars
+metaitem.anti_space_radioation_alloy.name=Anti-Space Radioation Alloy
+metaitem.anti_space_radioation_alloy_plate.name=Anti-Space Radioation Alloy Plate
+metaitem.europium_boule.name=Europium-doped Monocrystalline Silicon Boule
+metaitem.europium_doped_wafer.name=Europium-doped Wafer
+metaitem.advanced_highspeed_processing_unit.name=Advanced HighSpeed Processing Unit
+metaitem.improved_high_speed_arithmetic_integrated_processor.name=Improved HighSpeed Arithmetic Integrated Processor
+metaitem.brick_compound.name=Brick Compound
+metaitem.advanced_storage_housing.name=Advanced Storage Housing
+metaitem.fluid_storage_housing.name=Fluid Storage Housing
+metaitem.reinforced_wire.name=Reinforced Wire
+metaitem.vanadium_steel_reinforced_wire.name=Vanadium Steel Reinforced Wire
+metaitem.tungsten_carbide_reinforced_wire.name=Tungsten Carbide Reinforced Wire
+metaitem.silicon_crystal.name=Silicon Crystal
+#Material
+#PlatLine
+gregtech.material.platinum_metallic_powder=Platinum Metallic Powder
+gregtech.material.platinum_concentrate=Platinum Concentrate
+gregtech.material.platinum_salt=Platinum Salt
+gregtech.material.reprecipitated_platinum=Reprecipitated Platinum
+gregtech.material.refined_platinum_dust=Refined Platinum
+gregtech.material.platinum_residue=Platinum Residue
+gregtech.material.palladium_enriched_ammonia=Palladium Enriched Ammonia
+gregtech.material.leach_residue=Leach Residue
+gregtech.material.rhodium_sulfate=Rhodium Sulfate
+gregtech.material.sodium_ruthenate=Sodium Ruthenate
+gregtech.material.rarest_metal_residue=Rarest Metal Residue
+gregtech.material.iridium_metal_residue=Iridium Metal Residue
+gregtech.material.acidic_osmium_solution=Acidic Osmium Solution
+gregtech.material.sludge_dust_residue=Sludge Dust Residue
+gregtech.material.iridium_dioxide=Iridium Dioxide
+gregtech.material.acidic_iridium_solution=Acidic Iridium Solution
+gregtech.material.iridium_chloride=Iridium Chloride
+gregtech.material.metallic_sludge_dust_residue=Metallic Sludge Dust Residue
+gregtech.material.osmium_solution=Osmium Solution
+gregtech.material.rhodium_sulfate_solution=Rhodium Sulfate Solution
+gregtech.material.zinc_sulfate=Zinc Sulfate
+gregtech.material.crude_rhodium_metal=Crude Rhodium Metal
+gregtech.material.rhodium_salt=Rhodium Salt
+gregtech.material.rhodium_salt_solution=Rhodium Salt Solution
+gregtech.material.rhodium_nitrate=Rhodium Nitrate
+gregtech.material.rhodium_filter_cake=Rhodium Filter Cake
+gregtech.material.rhodium_filter_cake_solution=Rhodium Filter Cake Solution
+gregtech.material.reprecipitated_rhodium=Reprecipitated Rhodium
+gregtech.material.ruthenium_tetroxide_solution=Ruthenium Tetroxide Solution
+gregtech.material.hot_ruthenium_tetroxide_solution=Hot Ruthenium Tetroxide Solution
+gregtech.material.ruthenium_tetroxide=Ruthenium Tetroxide
+gregtech.material.palladium_metallic_powder=Palladium Metallic Powder
+gregtech.material.palladium_salt=Palladium Salt
+gregtech.material.reprecipitated_palladium=Reprecipitated Palladium
+#Water
+gregtech.material.purified_water_grade_h=Purified Water Grade 8
+gregtech.material.purified_water_grade_g=Purified Water Grade 7
+gregtech.material.purified_water_grade_f=Purified Water Grade 6
+gregtech.material.purified_water_grade_e=Purified Water Grade 5
+gregtech.material.purified_water_grade_d=Purified Water Grade 4
+gregtech.material.purified_water_grade_c=Purified Water Grade 3
+gregtech.material.purified_water_grade_b=Purified Water Grade 2
+gregtech.material.purified_water_grade_a=Purified Water Grade 1
+#Chemical
+gregtech.material.potassium_disulfate=Potassium Disulfate
+gregtech.material.sodium_nitrate=Sodium Nitrate
+gregtech.material.formic_acid=Formic Acid
+gregtech.material.sodium_formate=Sodium Formate
+gregtech.material.silicon_tetrachloride=Silicon Tetrachloride
+#Windows Material
+gregtech.material.high_purity_silicon=High Purity Silicon
+gregtech.material.draconium=Draconium
+gregtech.material.draconium_awakened=Awakened Draconium
+gregtech.material.terrasteel=TerraSteel
+gregtech.material.manasteel=ManaSteel
+gregtech.material.elementium=Elementium
+gregtech.material.thaumium=Thaumium
+gregtech.material.void=Void Metal
+gregtech.material.raw_neutronium=Raw Neutronium
+gregtech.material.samarium_europium_neodymium_trinaquadide=Samarium Europium Neodymium Trinaquadide
+gregtech.material.samarium_europium_neodymium_trinaquadide_magnetic=Magnetic Samarium Europium Neodymium Trinaquadide
+gregtech.material.quantium=Quantium
+gregtech.material.highly_active_draconium=Highly Active Draconium
+gregtech.material.highly_active_awakened_draconium=Highly Active Awakened Draconium
+gregtech.material.infinity=Infinity
+gregtech.material.celestiallium=Celestiallium
+gregtech.material.lunatium=Lunatium
+gregtech.material.sacred_metal=Sacred Material
+gregtech.material.stellarium=Stellarium
+gregtech.material.fractallium=Fractallium
+gregtech.material.entropium=Entropium
+gregtech.material.indalloy_140=Indalloy-140
+gregtech.material.stone_ingot=StoneIngot
+gregtech.material.neutronium_mixture=Neutron Mixture
+gregtech.material.antimatter=Anti-Matter
+gregtech.material.neutron_liquid=Neutron Liquid
+gregtech.material.enriched_neutron_liquid=Enriched Neutron Liquid
+gregtech.material.cosmic_neutronium=Cosmic Neutronium
+
+
+#Messages
+#Holiday
+#souritu
+holiday.bswsvrsouritu.1.1=Anniversary Of The Establishment
+holiday.bswsvrsouritu.1.2=Of Bosuwo's Minecraft Server
+holiday.bswsvrsouritu.2=Let's celebrate this day together
