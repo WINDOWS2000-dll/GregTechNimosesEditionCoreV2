@@ -7,7 +7,6 @@ import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
 import static gregtech.api.util.GTUtility.gregtechId;
 
-import gregtech.api.GTValues;
 import gregtech.api.fluids.FluidBuilder;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.info.MaterialIconSet;
@@ -44,7 +43,7 @@ public class GTNEWindowsMaterials {
                         .blastStats(8192, 10000)
                         .vacuumStats(VA[EV], 750))
                 .toolStats(new MaterialToolProperty(400F, 100F, 42000, 160))
-                //.cableProperties(8192L, 16, 16, false)
+                // .cableProperties(8192L, 16, 16, false)
                 .element(Dc)
                 .build();
 
@@ -61,7 +60,7 @@ public class GTNEWindowsMaterials {
                         .blastStats(120000, 12000)
                         .vacuumStats(VA[ZPM], 750))
                 .toolStats(new MaterialToolProperty(700F, 200F, 81920, 500))
-                //.cableProperties(GTValues.V[9], 32, 16, false)
+                // .cableProperties(GTValues.V[9], 32, 16, false)
                 .element(DcX)
                 .build();
 
@@ -80,7 +79,7 @@ public class GTNEWindowsMaterials {
                         .blastStats(2000000, 9600)
                         .vacuumStats(VA[UV], 1000))
                 .toolStats(new MaterialToolProperty(800F, 280F, 96000, 200))
-                //.cableProperties(V[UEV], 32, 32, false)
+                // .cableProperties(V[UEV], 32, 32, false)
                 .element(HADc)
                 .build();
 
@@ -99,7 +98,7 @@ public class GTNEWindowsMaterials {
                         .blastStats(12000000, 4800)
                         .vacuumStats(VA[UEV], 1200))
                 .toolStats(new MaterialToolProperty(1000F, 320F, 120000, 600))
-                //.cableProperties(V[UIV], 32, 64, false)
+                // .cableProperties(V[UIV], 32, 64, false)
                 .element(HADcX)
                 .build();
 
@@ -114,7 +113,7 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(6000F, 1800F, 8192000, 999))
-                //.cableProperties(V[UEV], 32, 0, false)
+                // .cableProperties(V[UEV], 32, 0, false)
                 .element(If)
                 .build();
 
@@ -129,7 +128,7 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(8000F, 2000F, 16384000, 999))
-                //.cableProperties(V[UIV], 32, 0, false)
+                // .cableProperties(V[UIV], 32, 0, false)
                 .element(CLS)
                 .build();
 
@@ -144,7 +143,7 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(8000F, 2000F, 16384000, 999))
-                //.cableProperties(V[UIV], 524288, 600000, false)
+                // .cableProperties(V[UIV], 524288, 600000, false)
                 .element(LNT)
                 .build();
 
@@ -159,7 +158,7 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(9000F, 3000F, 32768000, 999))
-                //.cableProperties(V[UIV], 64, 0, false)
+                // .cableProperties(V[UIV], 64, 0, false)
                 .element(SCR)
                 .build();
 
@@ -174,7 +173,7 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(10000F, 4000F, 65536000, 999))
-                //.cableProperties(V[UXV], 64, 0, false)
+                // .cableProperties(V[UXV], 64, 0, false)
                 .element(STL)
                 .build();
 
@@ -189,7 +188,7 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(20000F, 8000F, 131072000, 999))
-                //.cableProperties(V[OpV], 64, 0, false)
+                // .cableProperties(V[OpV], 64, 0, false)
                 .element(FTL)
                 .build();
 
@@ -204,7 +203,7 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(2147483647F, 10000000F, 2147483647, 999))
-                //.cableProperties(V[MAX], 128, 0, false)
+                // .cableProperties(V[MAX], 128, 0, false)
                 .element(ETP)
                 .build();
     }

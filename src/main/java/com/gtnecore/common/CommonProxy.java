@@ -20,9 +20,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import gregtech.api.GregTechAPI;
 import gregtech.api.block.VariantItemBlock;
-import gregtech.api.metatileentity.registry.MTEManager;
 import gregtech.common.items.MetaItems;
 
 import com.gtnecore.GTNECoreValues;

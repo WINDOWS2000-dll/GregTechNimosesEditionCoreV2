@@ -2,14 +2,14 @@ package com.gtnecore.common.Event;
 
 import static net.minecraft.util.text.TextFormatting.*;
 
-import gregtech.api.GregTechAPI;
-import gregtech.api.metatileentity.registry.MTEManager;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
+import gregtech.api.GregTechAPI;
+import gregtech.api.metatileentity.registry.MTEManager;
 import gregtech.api.unification.material.event.MaterialEvent;
 
 import com.gtnecore.GTNECoreValues;
