@@ -1,8 +1,5 @@
 package com.gtnecore.modules;
 
-import it.unimi.dsi.fastutil.objects.Object2ReferenceLinkedOpenHashMap;
-import it.unimi.dsi.fastutil.objects.ObjectLinkedOpenHashSet;
-import it.unimi.dsi.fastutil.objects.ReferenceLinkedOpenHashSet;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -21,11 +18,15 @@ import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.google.common.base.Preconditions;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.Unmodifiable;
+
+import com.google.common.base.Preconditions;
+
+import it.unimi.dsi.fastutil.objects.Object2ReferenceLinkedOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectLinkedOpenHashSet;
+import it.unimi.dsi.fastutil.objects.ReferenceLinkedOpenHashSet;
 
 public class GTNEModuleManager implements IModuleManager {
 
@@ -406,7 +407,7 @@ public class GTNEModuleManager implements IModuleManager {
         }
         return instances.stream()
                 .sorted(Comparator.comparing((m) -> m.getClass()
-                                .getAnnotation(GTNEModule.class),
+                        .getAnnotation(GTNEModule.class),
                         Comparator.comparing(GTNEModule::containerID)
                                 .thenComparing(GTNEModule::moduleID)))
                 .collect(Collectors.toList());

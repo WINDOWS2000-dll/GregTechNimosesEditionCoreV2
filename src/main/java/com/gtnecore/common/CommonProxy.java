@@ -2,7 +2,6 @@ package com.gtnecore.common;
 
 import static com.gtnecore.common.Block.GTNEMetaBlocks.BLOCK_GTNE_WIRE_COIL;
 
-import com.gtnecore.common.Event.GTNEEventHandler;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -29,6 +28,7 @@ import gregtech.common.items.MetaItems;
 import com.gtnecore.GTNECoreValues;
 import com.gtnecore.api.capabilities.Wireless.WirelessEUWorldEventHandler;
 import com.gtnecore.api.util.GTNELogger;
+import com.gtnecore.common.Event.GTNEEventHandler;
 
 import java.util.function.Function;
 

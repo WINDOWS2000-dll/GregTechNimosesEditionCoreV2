@@ -46,7 +46,6 @@ public class CoreModule implements IGTNEModule {
 
     @Override
     public void preInit(FMLPreInitializationEvent preInitEvent) {
-
         proxy.preInit(preInitEvent);
         proxy.preLoad();
 

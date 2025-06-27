@@ -1,17 +1,19 @@
 package com.gtnecore.common.Event;
 
-import com.gtnecore.GTNECoreValues;
-import com.gtnecore.api.unification.material.GTNEMaterials;
-import gregtech.api.unification.material.event.MaterialEvent;
+import static net.minecraft.util.text.TextFormatting.*;
+
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
-import java.util.Objects;
+import gregtech.api.unification.material.event.MaterialEvent;
 
-import static net.minecraft.util.text.TextFormatting.*;
+import com.gtnecore.GTNECoreValues;
+import com.gtnecore.api.unification.material.GTNEMaterials;
+
+import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = GTNECoreValues.MODID)
 public class GTNEEventHandler {
@@ -33,7 +35,7 @@ public class GTNEEventHandler {
         private static final String[] lines = {
                 GOLD + "============================================",
                 BOLD + "Welcome to GregTechNimosesEdition!!!!",
-                GRAY + "The current game is"+RED+" beta version",
+                GRAY + "The current game is" + RED + " beta version",
                 GOLD + "============================================"
         };
 
@@ -45,5 +47,4 @@ public class GTNEEventHandler {
             }
         }
     }
-
 }
