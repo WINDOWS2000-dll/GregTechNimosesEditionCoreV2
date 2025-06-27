@@ -89,11 +89,6 @@ public class CommonProxy {
     }
 
     @SubscribeEvent
-    public static void registerMTERegistry(MTEManager.MTERegistryEvent event) {
-        GregTechAPI.mteManager.createRegistry(GTNECoreValues.MODID);
-    }
-
-    @SubscribeEvent
     public static void onWorldLoadEvent(WorldEvent.Load onWorldLoadEvent) {
         /**/
     }

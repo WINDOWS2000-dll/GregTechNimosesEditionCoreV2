@@ -2,6 +2,8 @@ package com.gtnecore.common.Event;
 
 import static net.minecraft.util.text.TextFormatting.*;
 
+import gregtech.api.GregTechAPI;
+import gregtech.api.metatileentity.registry.MTEManager;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -19,6 +21,11 @@ import java.util.Objects;
 public class GTNEEventHandler {
 
     public GTNEEventHandler() {}
+
+    @SubscribeEvent
+    public static void registerMTERegistry(MTEManager.MTERegistryEvent event) {
+        GregTechAPI.mteManager.createRegistry(GTNECoreValues.MODID);
+    }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void registerMaterialHigh(MaterialEvent event) {
