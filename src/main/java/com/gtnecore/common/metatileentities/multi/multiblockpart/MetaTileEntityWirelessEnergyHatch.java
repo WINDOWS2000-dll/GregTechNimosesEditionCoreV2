@@ -99,7 +99,7 @@ public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockP
 
         builder.image(190, 4, 164, 154, GuiTextures.DISPLAY);
 
-        builder.dynamicLabel(194, 10, () -> "Wireless Energy Channel Controll System", 0xFFFFFF);
+        builder.dynamicLabel(194, 10, () -> "Wireless Network Control System", 0xFFFFFF);
 
         builder.widget((new AdvancedTextWidget(194, 22, this::addDisplayText, 1677215)).setMaxWidthLimit(162));
 
@@ -149,7 +149,9 @@ public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockP
     }
 
     private String formatEnergyValue(BigInteger energy) {
-        if (energy.compareTo(BigInteger.valueOf(1_000_000_000L)) >= 0) {
+        if (energy.compareTo(BigInteger.valueOf(1_000_000_000_000L)) >= 0) {
+            return energy.divide(BigInteger.valueOf(1_000_000_000_000L)) + " PEU";
+        } else if (energy.compareTo(BigInteger.valueOf(1_000_000_000L)) >= 0) {
             return energy.divide(BigInteger.valueOf(1_000_000_000)) + " GEU";
         } else if (energy.compareTo(BigInteger.valueOf(1_000_000L)) >= 0) {
             return energy.divide(BigInteger.valueOf(1_000_000L)) + " MEU";

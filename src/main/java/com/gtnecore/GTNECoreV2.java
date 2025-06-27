@@ -1,54 +1,96 @@
 package com.gtnecore;
 
+import com.gtnecore.api.util.GTNELogger;
+import com.gtnecore.modules.GTNEModuleManager;
+import com.gtnecore.modules.GTNEModules;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.event.*;
 
-import com.gtnecore.common.CommonProxy;
 
-import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(
      modid = GTNECoreValues.MODID,
      version = GTNECoreValues.MOD_VER,
      name = GTNECoreValues.MOD_NAME,
      acceptedMinecraftVersions = "[1.12.2]")
+@Mod.EventBusSubscriber(modid = GTNECoreValues.MODID)
 public class GTNECoreV2 {
 
-    @SidedProxy(modId = "gtnecore",
-                clientSide = "com.gtnecore.client.ClientProxy",
-                serverSide = "com.gtnecore.common.CommonProxy")
-    public static CommonProxy proxy;
+    private GTNEModuleManager moduleManager;
 
-    @Mod.Instance
-    public static GTNECoreV2 instance;
-
-    public static Logger logger;
-
-    @EventHandler
-    // preInit "Run before anything else. Read your config, create blocks, items, etc. (Remove if not needed)
-    public void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
-        proxy.preInit(event);
+    @Mod.EventHandler
+    public void onConstruction(FMLConstructionEvent constructionEvent) {
+        MinecraftForge.EVENT_BUS.register(this);
+        GTNELogger.logger.info("starting construction event...");
+        moduleManager = GTNEModuleManager.getInstance();
+        moduleManager.registerContainer(new GTNEModules());
+        moduleManager.setup(constructionEvent.getASMHarvestedData(), Loader.instance().getConfigDir());
+        moduleManager.onConstruction(constructionEvent);
+        GTNELogger.logger.info("finished construction!");
     }
 
-    @EventHandler
-    // load "Do your mod setup. Build whatever data structures you care about." (Remove if not needed)
-    public void init(FMLInitializationEvent event) {
-        proxy.init(event);
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent preInitializationEvent) {
+        moduleManager.onPreInit(preInitializationEvent);
     }
 
-    @EventHandler
-    // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
-    public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent initializationEvent) {
+        moduleManager.onInit(initializationEvent);
     }
 
-    @EventHandler
-    // register server commands in this event handler (Remove if not needed)
-    public void serverStarting(FMLServerStartingEvent event) {}
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent postInitializationEvent) {
+        moduleManager.onPostInit(postInitializationEvent);
+    }
+
+    @Mod.EventHandler
+    public void loadComplete(FMLLoadCompleteEvent loadCompleteEvent) {
+        moduleManager.onLoadComplete(loadCompleteEvent);
+    }
+
+    @Mod.EventHandler
+    public void serverAboutToStart(FMLServerAboutToStartEvent serverAboutToStartEvent) {
+        moduleManager.onServerAboutToStart(serverAboutToStartEvent);
+    }
+
+    @Mod.EventHandler
+    public void serverStarting(FMLServerStartingEvent serverStartingEvent) {
+        moduleManager.onServerStarting(serverStartingEvent);
+    }
+
+    @Mod.EventHandler
+    public void serverStarted(FMLServerStartedEvent serverStartedEvent) {
+        moduleManager.onServerStarted(serverStartedEvent);
+    }
+
+    @Mod.EventHandler
+    public void serverStopping(FMLServerStoppingEvent serverStoppingEvent) {
+        moduleManager.onServerStopping(serverStoppingEvent);
+    }
+
+    @Mod.EventHandler
+    public void serverStopped(FMLServerStoppedEvent serverStoppedEvent) {
+        moduleManager.onServerStopped(serverStoppedEvent);
+    }
+
+    @Mod.EventHandler
+    public void respondIMC(FMLInterModComms.IMCEvent event) {
+        moduleManager.processIMC(event.getMessages());
+    }
+
+    @SubscribeEvent
+    public static void syncConfigValues(ConfigChangedEvent.OnConfigChangedEvent event) {
+        if (event.getModID().equals(GTNECoreValues.MODID)) {
+            ConfigManager.sync(GTNECoreValues.MODID, Config.Type.INSTANCE);
+        }
+    }
+
+
 }
