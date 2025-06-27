@@ -3,10 +3,11 @@ package com.gtnecore.api.unification.material;
 import static com.gtnecore.api.unification.material.GTNEElements.*;
 import static com.gtnecore.api.unification.material.GTNEMaterials.*;
 import static com.gtnecore.api.util.GTNEUtility.DefaultMaterialFlags;
+import static com.gtnecore.api.util.GTNEUtility.gtneID;
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.info.MaterialFlags.*;
-import static gregtech.api.util.GTUtility.gregtechId;
 
+import gregtech.api.GTValues;
 import gregtech.api.fluids.FluidBuilder;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.info.MaterialIconSet;
@@ -19,7 +20,7 @@ public class GTNEWindowsMaterials {
 
     public static void init() {
         // 24001 ~ 24500
-        HIGH_PURITY_SILICON = new Material.Builder(24001, gregtechId("high_purity_silicon"))
+        HIGH_PURITY_SILICON = new Material.Builder(24001, gtneID("high_purity_silicon"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(2273))
@@ -30,7 +31,7 @@ public class GTNEWindowsMaterials {
                         .temp(2400, BlastProperty.GasTier.LOW))
                 .build();
 
-        Draconium = new Material.Builder(24002, gregtechId("draconium"))
+        Draconium = new Material.Builder(24002, gtneID("draconium"))
                 .dust()
                 .ingot()
                 .plasma()
@@ -43,11 +44,11 @@ public class GTNEWindowsMaterials {
                         .blastStats(8192, 10000)
                         .vacuumStats(VA[EV], 750))
                 .toolStats(new MaterialToolProperty(400F, 100F, 42000, 160))
-                // .cableProperties(8192L, 16, 16, false)
+                .cableProperties(8192L, 16, 16, false)
                 .element(Dc)
                 .build();
 
-        Awakened_Draconium = new Material.Builder(24003, gregtechId("draconium_awakened"))
+        Awakened_Draconium = new Material.Builder(24003, gtneID("draconium_awakened"))
                 .dust()
                 .ingot()
                 .plasma()
@@ -60,11 +61,11 @@ public class GTNEWindowsMaterials {
                         .blastStats(120000, 12000)
                         .vacuumStats(VA[ZPM], 750))
                 .toolStats(new MaterialToolProperty(700F, 200F, 81920, 500))
-                // .cableProperties(GTValues.V[9], 32, 16, false)
+                .cableProperties(GTValues.V[9], 32, 16, false)
                 .element(DcX)
                 .build();
 
-        Highly_Active_Draconium = new Material.Builder(24004, gregtechId("highly_active_draconium"))
+        Highly_Active_Draconium = new Material.Builder(24004, gtneID("highly_active_draconium"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(17500))
@@ -79,11 +80,11 @@ public class GTNEWindowsMaterials {
                         .blastStats(2000000, 9600)
                         .vacuumStats(VA[UV], 1000))
                 .toolStats(new MaterialToolProperty(800F, 280F, 96000, 200))
-                // .cableProperties(V[UEV], 32, 32, false)
+                .cableProperties(V[UEV], 32, 32, false)
                 .element(HADc)
                 .build();
 
-        Highly_Active_Awakened_Draconium = new Material.Builder(24005, gregtechId("highly_active_awakened_draconium"))
+        Highly_Active_Awakened_Draconium = new Material.Builder(24005, gtneID("highly_active_awakened_draconium"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(23500))
@@ -98,11 +99,11 @@ public class GTNEWindowsMaterials {
                         .blastStats(12000000, 4800)
                         .vacuumStats(VA[UEV], 1200))
                 .toolStats(new MaterialToolProperty(1000F, 320F, 120000, 600))
-                // .cableProperties(V[UIV], 32, 64, false)
+                .cableProperties(V[UIV], 32, 64, false)
                 .element(HADcX)
                 .build();
 
-        Infinity = new Material.Builder(24006, gregtechId("infinity"))
+        Infinity = new Material.Builder(24006, gtneID("infinity"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(2000000000).textures(true, false))
@@ -113,11 +114,11 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(6000F, 1800F, 8192000, 999))
-                // .cableProperties(V[UEV], 32, 0, false)
+                .cableProperties(V[UEV], 32, 0, false)
                 .element(If)
                 .build();
 
-        Celestiallium = new Material.Builder(24007, gregtechId("celestiallium"))
+        Celestiallium = new Material.Builder(24007, gtneID("celestiallium"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(16))
@@ -128,11 +129,11 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(8000F, 2000F, 16384000, 999))
-                // .cableProperties(V[UIV], 32, 0, false)
+                .cableProperties(V[UIV], 32, 0, false)
                 .element(CLS)
                 .build();
 
-        Lunatium = new Material.Builder(24008, gregtechId("lunatium"))
+        Lunatium = new Material.Builder(24008, gtneID("lunatium"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(666666666))
@@ -143,11 +144,11 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(8000F, 2000F, 16384000, 999))
-                // .cableProperties(V[UIV], 524288, 600000, false)
+                .cableProperties(V[UIV], 524288, 600000, false)
                 .element(LNT)
                 .build();
 
-        Sacred_Metal = new Material.Builder(24009, gregtechId("sacred_metal"))
+        Sacred_Metal = new Material.Builder(24009, gtneID("sacred_metal"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(77777777))
@@ -158,11 +159,11 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(9000F, 3000F, 32768000, 999))
-                // .cableProperties(V[UIV], 64, 0, false)
+                .cableProperties(V[UIV], 64, 0, false)
                 .element(SCR)
                 .build();
 
-        Stellarium = new Material.Builder(24010, gregtechId("stellarium"))
+        Stellarium = new Material.Builder(24010, gtneID("stellarium"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(2147483647).textures(true, false))
@@ -173,11 +174,11 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(10000F, 4000F, 65536000, 999))
-                // .cableProperties(V[UXV], 64, 0, false)
+                .cableProperties(V[UXV], 64, 0, false)
                 .element(STL)
                 .build();
 
-        Fractallium = new Material.Builder(24011, gregtechId("fractallium"))
+        Fractallium = new Material.Builder(24011, gtneID("fractallium"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(2147483647))
@@ -188,11 +189,11 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(20000F, 8000F, 131072000, 999))
-                // .cableProperties(V[OpV], 64, 0, false)
+                .cableProperties(V[OpV], 64, 0, false)
                 .element(FTL)
                 .build();
 
-        Entropium = new Material.Builder(24012, gregtechId("entropium"))
+        Entropium = new Material.Builder(24012, gtneID("entropium"))
                 .dust()
                 .ingot()
                 .liquid(new FluidBuilder().temperature(2147483647))
@@ -203,7 +204,7 @@ public class GTNEWindowsMaterials {
                 .blast(builder -> builder
                         .temp(200_000_000))
                 .toolStats(new MaterialToolProperty(2147483647F, 10000000F, 2147483647, 999))
-                // .cableProperties(V[MAX], 128, 0, false)
+                .cableProperties(V[MAX], 128, 0, false)
                 .element(ETP)
                 .build();
     }
