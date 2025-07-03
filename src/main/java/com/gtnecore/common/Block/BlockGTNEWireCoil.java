@@ -40,7 +40,6 @@ public class BlockGTNEWireCoil extends VariantActiveBlock<BlockGTNEWireCoil.Coil
         setSoundType(SoundType.METAL);
         setHarvestLevel("wrench", 4);
         setDefaultState(this.getState(CoilType.DRACONIUM));
-        setRegistryName("gtne_wire_coil");
     }
 
     public boolean canCreatureSpawn(@Nonnull IBlockState state, @Nonnull IBlockAccess world, @Nonnull BlockPos pos,
