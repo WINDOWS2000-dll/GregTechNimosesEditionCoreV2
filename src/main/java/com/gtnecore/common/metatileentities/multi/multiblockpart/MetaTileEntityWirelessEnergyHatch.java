@@ -145,12 +145,16 @@ public class MetaTileEntityWirelessEnergyHatch extends MetaTileEntityMultiblockP
 
     private String formatScientificNotation(BigInteger energy) {
         double value = energy.doubleValue();
-        return String.format("%.3E", value);
+        return String.format("%3EU", value);
     }
 
     private String formatEnergyValue(BigInteger energy) {
-        if (energy.compareTo(BigInteger.valueOf(1_000_000_000_000L)) >= 0) {
-            return energy.divide(BigInteger.valueOf(1_000_000_000_000L)) + " PEU";
+        if (energy.compareTo(BigInteger.valueOf(1_000_000_000_000_000_000L)) >= 0) {
+            return energy.divide(BigInteger.valueOf(1_000_000_000_000_000_000L)) + "EEU";
+        } else if (energy.compareTo(BigInteger.valueOf(1_000_000_000_000_000L)) >= 0) {
+            return energy.divide(BigInteger.valueOf(1_000_000_000_000_000L)) + "PEU";
+        } else if (energy.compareTo(BigInteger.valueOf(1_000_000_000_000L)) >= 0) {
+            return energy.divide(BigInteger.valueOf(1_000_000_000_000L)) + " TEU";
         } else if (energy.compareTo(BigInteger.valueOf(1_000_000_000L)) >= 0) {
             return energy.divide(BigInteger.valueOf(1_000_000_000)) + " GEU";
         } else if (energy.compareTo(BigInteger.valueOf(1_000_000L)) >= 0) {
