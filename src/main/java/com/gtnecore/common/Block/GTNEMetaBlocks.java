@@ -2,6 +2,8 @@ package com.gtnecore.common.Block;
 
 import static gregtech.common.blocks.MetaBlocks.statePropertiesToString;
 
+import com.gtnecore.common.Block.elevator.ElevatorCasing;
+import com.gtnecore.common.Block.elevator.ElevatorCasingTiered;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -13,10 +15,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GTNEMetaBlocks {
 
     public static BlockGTNEWireCoil BLOCK_GTNE_WIRE_COIL;
+    public static ElevatorCasingTiered ELEVATOR_CASING_TIERED;
+    public static ElevatorCasing ELEVATOR_CASING;
 
     public static void init() {
         BLOCK_GTNE_WIRE_COIL = new BlockGTNEWireCoil();
         BLOCK_GTNE_WIRE_COIL.setRegistryName("gtne_wire_coil");
+        ELEVATOR_CASING_TIERED = new ElevatorCasingTiered();
+        ELEVATOR_CASING_TIERED.setRegistryName("gtne_elevator_casing_tiered");
+        ELEVATOR_CASING = new ElevatorCasing();
+        ELEVATOR_CASING.setRegistryName("gtne_elevator_casing");
     }
 
     @SideOnly(Side.CLIENT)

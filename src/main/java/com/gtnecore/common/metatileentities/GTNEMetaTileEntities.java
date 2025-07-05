@@ -3,6 +3,7 @@ package com.gtnecore.common.metatileentities;
 import static gregtech.api.GTValues.VN;
 import static gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity;
 
+import com.gtnecore.common.metatileentities.multi.spaceelevator.MetaTileEntitySpaceElevator;
 import net.minecraft.util.ResourceLocation;
 
 import com.gtnecore.common.metatileentities.multi.multiblockpart.MetaTileEntityWirelessEnergyHatch;
@@ -34,7 +35,14 @@ public class GTNEMetaTileEntities {
     public static final MetaTileEntityWirelessEnergyHatch[] WIRELESS_INPUT_ENERGY_HATCH_1048576A = new MetaTileEntityWirelessEnergyHatch[15];
     public static final MetaTileEntityWirelessEnergyHatch[] WIRELESS_OUTPUT_ENERGY_HATCH_1048576A = new MetaTileEntityWirelessEnergyHatch[15];
 
+    public static MetaTileEntitySpaceElevator SPACE_ELEVATOR;
+
     public static void Initialization() {
+
+        //MultiBlockMachine 200~
+        SPACE_ELEVATOR = registerMetaTileEntity(209, new MetaTileEntitySpaceElevator(gtneId("space_elevator")));
+
+
         for (int i = 0; i < 15; i++) {
             String tier = VN[i].toLowerCase();
             WIRELESS_INPUT_ENERGY_HATCH[i] = registerMetaTileEntity(3000 + i,

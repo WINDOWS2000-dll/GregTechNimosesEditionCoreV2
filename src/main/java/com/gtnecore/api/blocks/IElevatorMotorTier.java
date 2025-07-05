@@ -1,6 +1,6 @@
 package com.gtnecore.api.blocks;
 
-public interface IEvevatorMotorTier {
+public interface IElevatorMotorTier {
 
     /**
      * Elevator Motor Casing Tier
