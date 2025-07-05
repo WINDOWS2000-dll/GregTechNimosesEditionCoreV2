@@ -1,6 +1,6 @@
 package com.gtnecore.common;
 
-import static com.gtnecore.common.Block.GTNEMetaBlocks.BLOCK_GTNE_WIRE_COIL;
+import static com.gtnecore.common.Block.GTNEMetaBlocks.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -66,6 +66,8 @@ public class CommonProxy {
         GTNELogger.logger.info("Registering Blocks...");
         IForgeRegistry<Block> registry = blockRegisterEvent.getRegistry();
         registry.register(BLOCK_GTNE_WIRE_COIL);
+        registry.register(ELEVATOR_CASING);
+        registry.register(ELEVATOR_CASING_TIERED);
     }
 
     @SubscribeEvent
@@ -74,6 +76,8 @@ public class CommonProxy {
         IForgeRegistry<Item> registry = itemRegisterEvent.getRegistry();
 
         registry.register(createItemBlock(BLOCK_GTNE_WIRE_COIL, VariantItemBlock::new));
+        registry.register(createItemBlock(ELEVATOR_CASING, VariantItemBlock::new));
+        registry.register(createItemBlock(ELEVATOR_CASING_TIERED, VariantItemBlock::new));
     }
 
     private static <T extends Block> ItemBlock createItemBlock(T block, Function<T, ItemBlock> producer) {

@@ -111,6 +111,7 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
         }
     }
 
+    // spotless:off
     @Override
     protected @NotNull BlockPattern createStructurePattern() {
         if (!this.isExtended) {
@@ -231,6 +232,7 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
                     .build();
         }
     }
+    // spotless:on
 
     @Override
     public boolean hasMaintenanceMechanics() {
