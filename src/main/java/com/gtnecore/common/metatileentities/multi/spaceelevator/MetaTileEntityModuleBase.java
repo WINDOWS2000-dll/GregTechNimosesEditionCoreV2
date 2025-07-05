@@ -1,7 +1,5 @@
 package com.gtnecore.common.metatileentities.multi.spaceelevator;
 
-import com.gtnecore.common.Block.GTNEMetaBlocks;
-import com.gtnecore.common.Block.elevator.ElevatorCasing;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumFacing;
@@ -28,6 +26,8 @@ import gregtech.client.renderer.texture.Textures;
 import com.gtnecore.api.metatileentity.multiblocks.ISpaceElevatorProvider;
 import com.gtnecore.api.metatileentity.multiblocks.ISpaceElevatorReceiver;
 import com.gtnecore.client.renderer.texture.GTNECoreTextures;
+import com.gtnecore.common.Block.GTNEMetaBlocks;
+import com.gtnecore.common.Block.elevator.ElevatorCasing;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -108,7 +108,9 @@ public abstract class MetaTileEntityModuleBase extends MultiblockWithDisplayBase
                 .aisle("C", "C", "C", "C", "C")
                 .aisle("C", "C", "C", "S", "C")
                 .where('S', selfPredicate())
-                .where('C',states(GTNEMetaBlocks.ELEVATOR_CASING.getState(ElevatorCasing.CasingType.ELEVATOR_BASE_CASING)).or(abilities().setPreviewCount(0)))
+                .where('C',
+                        states(GTNEMetaBlocks.ELEVATOR_CASING.getState(ElevatorCasing.CasingType.ELEVATOR_BASE_CASING))
+                                .or(abilities().setPreviewCount(0)))
                 .build();
     }
 

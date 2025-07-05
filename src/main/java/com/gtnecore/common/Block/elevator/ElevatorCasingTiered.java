@@ -1,7 +1,5 @@
 package com.gtnecore.common.Block.elevator;
 
-import com.gtnecore.api.blocks.IElevatorMotorTier;
-import gregtech.api.block.VariantBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -9,9 +7,14 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import org.jetbrains.annotations.NotNull;
+
+import gregtech.api.block.VariantBlock;
+
+import com.gtnecore.api.blocks.IElevatorMotorTier;
 
 import javax.annotation.Nonnull;
+
+import org.jetbrains.annotations.NotNull;
 
 public class ElevatorCasingTiered extends VariantBlock<ElevatorCasingTiered.CasingType> {
 
@@ -26,7 +29,8 @@ public class ElevatorCasingTiered extends VariantBlock<ElevatorCasingTiered.Casi
     }
 
     @Override
-    public boolean canCreatureSpawn(@Nonnull IBlockState state, @Nonnull IBlockAccess world, @Nonnull BlockPos pos, @Nonnull EntityLiving.SpawnPlacementType type) {
+    public boolean canCreatureSpawn(@Nonnull IBlockState state, @Nonnull IBlockAccess world, @Nonnull BlockPos pos,
+                                    @Nonnull EntityLiving.SpawnPlacementType type) {
         return false;
     }
 
@@ -53,7 +57,5 @@ public class ElevatorCasingTiered extends VariantBlock<ElevatorCasingTiered.Casi
         public int getTier() {
             return this.ordinal();
         }
-
     }
-
 }

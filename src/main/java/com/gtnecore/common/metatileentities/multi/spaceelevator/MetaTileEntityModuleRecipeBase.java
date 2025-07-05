@@ -1,10 +1,9 @@
 package com.gtnecore.common.metatileentities.multi.spaceelevator;
 
-import com.gtnecore.api.metatileentity.multiblocks.ISpaceElevatorProvider;
-import com.gtnecore.api.metatileentity.multiblocks.ISpaceElevatorReceiver;
-import com.gtnecore.client.renderer.texture.GTNECoreTextures;
-import com.gtnecore.common.Block.GTNEMetaBlocks;
-import com.gtnecore.common.Block.elevator.ElevatorCasing;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.impl.EnergyContainerHandler;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -15,13 +14,18 @@ import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
+import com.gtnecore.api.metatileentity.multiblocks.ISpaceElevatorProvider;
+import com.gtnecore.api.metatileentity.multiblocks.ISpaceElevatorReceiver;
+import com.gtnecore.client.renderer.texture.GTNECoreTextures;
+import com.gtnecore.common.Block.GTNEMetaBlocks;
+import com.gtnecore.common.Block.elevator.ElevatorCasing;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class MetaTileEntityModuleRecipeBase extends RecipeMapMultiblockController implements ISpaceElevatorReceiver {
+public abstract class MetaTileEntityModuleRecipeBase extends RecipeMapMultiblockController
+                                                     implements ISpaceElevatorReceiver {
 
     protected final int tier;
 
@@ -33,20 +37,21 @@ public abstract class MetaTileEntityModuleRecipeBase extends RecipeMapMultiblock
 
     protected ISpaceElevatorProvider spaceElevator;
 
-    public MetaTileEntityModuleRecipeBase(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, int tier, int moduleTier, int minMotorTier) {
+    public MetaTileEntityModuleRecipeBase(ResourceLocation metaTileEntityId, RecipeMap<?> recipeMap, int tier,
+                                          int moduleTier, int minMotorTier) {
         super(metaTileEntityId, recipeMap);
         this.moduleTier = moduleTier;
         this.minMotorTier = minMotorTier;
         this.tier = tier;
         this.energyConsumption = (long) (Math.pow(4, this.tier + 2) / 2.0);
-        this.energyContainer = new EnergyContainerHandler(this, (long) (160008000L * Math.pow(4, this.tier - 9)), this.energyConsumption, 1, 0, 0);
-
+        this.energyContainer = new EnergyContainerHandler(this, (long) (160008000L * Math.pow(4, this.tier - 9)),
+                this.energyConsumption, 1, 0, 0);
     }
 
     @Override
     public void checkStructurePattern() {
-        if(getSpaceElevator() != null) {
-            if(getSpaceElevator().getMotorTier() >= minMotorTier) {
+        if (getSpaceElevator() != null) {
+            if (getSpaceElevator().getMotorTier() >= minMotorTier) {
                 super.checkStructurePattern();
             }
         }
@@ -58,8 +63,9 @@ public abstract class MetaTileEntityModuleRecipeBase extends RecipeMapMultiblock
     @Override
     public void updateFormedValid() {
         super.updateFormedValid();
-        if(this.getOffsetTimer() % 20 == 0 && getSpaceElevator() != null) {
-            if (this.energyContainer.getEnergyCapacity() != this.energyContainer.getEnergyStored() && getSpaceElevator().getEnergyContainerForModules().getEnergyStored() > this.energyConsumption * 20) {
+        if (this.getOffsetTimer() % 20 == 0 && getSpaceElevator() != null) {
+            if (this.energyContainer.getEnergyCapacity() != this.energyContainer.getEnergyStored() &&
+                    getSpaceElevator().getEnergyContainerForModules().getEnergyStored() > this.energyConsumption * 20) {
                 long energyToDraw = this.energyContainer.getEnergyCapacity() - this.energyContainer.getEnergyStored();
                 getSpaceElevator().getEnergyContainerForModules().removeEnergy(energyToDraw);
                 this.energyContainer.addEnergy(energyToDraw);
@@ -78,10 +84,12 @@ public abstract class MetaTileEntityModuleRecipeBase extends RecipeMapMultiblock
     @Override
     protected @NotNull BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
-                .aisle("C","C","C","C","C")
-                .aisle("C","C","C","S","C")
+                .aisle("C", "C", "C", "C", "C")
+                .aisle("C", "C", "C", "S", "C")
                 .where('S', selfPredicate())
-                .where('C', states(GTNEMetaBlocks.ELEVATOR_CASING.getState(ElevatorCasing.CasingType.ELEVATOR_BASE_CASING)).or(abilities().setPreviewCount(0)))
+                .where('C',
+                        states(GTNEMetaBlocks.ELEVATOR_CASING.getState(ElevatorCasing.CasingType.ELEVATOR_BASE_CASING))
+                                .or(abilities().setPreviewCount(0)))
                 .build();
     }
 
@@ -116,10 +124,9 @@ public abstract class MetaTileEntityModuleRecipeBase extends RecipeMapMultiblock
 
     @Override
     public IEnergyContainer getEnergyContainer() {
-        if(getSpaceElevator() == null || getSpaceElevator().getEnergyContainerForModules() == null) {
+        if (getSpaceElevator() == null || getSpaceElevator().getEnergyContainerForModules() == null) {
             return new EnergyContainerHandler(this, 0, 0, 0, 0, 0);
-        }
-        else
+        } else
             return this.energyContainer;
     }
 
@@ -137,5 +144,4 @@ public abstract class MetaTileEntityModuleRecipeBase extends RecipeMapMultiblock
     public String getNameForDisplayCount() {
         return this.getMetaName() + ".display_count";
     }
-
 }

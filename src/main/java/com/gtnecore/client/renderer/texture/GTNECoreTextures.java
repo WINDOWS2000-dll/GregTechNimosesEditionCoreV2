@@ -1,9 +1,9 @@
 package com.gtnecore.client.renderer.texture;
 
-import gregtech.api.gui.resources.TextureArea;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
 
+import gregtech.api.gui.resources.TextureArea;
 import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
 
 import com.gtnecore.GTNECoreValues;
@@ -26,15 +26,18 @@ public class GTNECoreTextures {
     /////////////////////////////////////////////////////////////////////////////
     public static SimpleOverlayRenderer ELEVATOR_CASING;
 
-
-    //GUI Widget
-    public static final TextureArea BUTTON_ELEVATOR_EXTENSION = TextureArea.fullImage("textures/gui/widget/space_elevator_extension.png");
-    public static final TextureArea BUTTON_ELEVATOR_TELEPORT = TextureArea.fullImage("textures/gui/widget/planet_teleport.png");
-    public static final TextureArea BUTTON_ENABLE_STATIC = TextureArea.fullImage("textures/gui/widget/button_power_enable_static.png");
-    public static final TextureArea BUTTON_DISABLE_STATIC = TextureArea.fullImage("textures/gui/widget/button_power_disable_static.png");
+    // GUI Widget
+    public static final TextureArea BUTTON_ELEVATOR_EXTENSION = TextureArea
+            .fullImage("textures/gui/widget/space_elevator_extension.png");
+    public static final TextureArea BUTTON_ELEVATOR_TELEPORT = TextureArea
+            .fullImage("textures/gui/widget/planet_teleport.png");
+    public static final TextureArea BUTTON_ENABLE_STATIC = TextureArea
+            .fullImage("textures/gui/widget/button_power_enable_static.png");
+    public static final TextureArea BUTTON_DISABLE_STATIC = TextureArea
+            .fullImage("textures/gui/widget/button_power_disable_static.png");
     public static final TextureArea BUTTON_CYCLE = TextureArea.fullImage("textures/gui/widget/button_cycle.png");
-    public static final TextureArea BUTTON_WHITE_BLACK_LIST = TextureArea.fullImage("textures/gui/widget/button_white_black_list.png");
-
+    public static final TextureArea BUTTON_WHITE_BLACK_LIST = TextureArea
+            .fullImage("textures/gui/widget/button_white_black_list.png");
 
     public static void preInit() {
         MULTIPART_WIRELESS_ENERGY = new SimpleOverlayRenderer("wireless_hatch/overlay_front");
