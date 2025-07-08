@@ -2,7 +2,6 @@ package com.gtnecore.common.Event;
 
 import static net.minecraft.util.text.TextFormatting.*;
 
-import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -46,12 +45,14 @@ public class GTNEEventHandler {
                 GOLD + "============================================"
         };
 
+        // spotless:off
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
             Objects.requireNonNull(event.player);
             for (String line : lines) {
-                event.player.sendMessage(new TextComponentString(line));
+                //event.player.sendMessage(new TextComponentString(line));
             }
         }
+        // spotless:on
     }
 }

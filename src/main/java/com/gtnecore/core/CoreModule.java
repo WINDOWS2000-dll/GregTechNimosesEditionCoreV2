@@ -1,5 +1,7 @@
 package com.gtnecore.core;
 
+import static com.gtnecore.api.GTNEAPI.ELEVATOR_MOTORS;
+import static com.gtnecore.common.Block.GTNEMetaBlocks.ELEVATOR_CASING_TIERED;
 import static gregtech.api.GregTechAPI.*;
 
 import net.minecraftforge.fml.common.SidedProxy;
@@ -11,6 +13,7 @@ import com.gtnecore.api.module.GTNEModule;
 import com.gtnecore.api.module.IGTNEModule;
 import com.gtnecore.common.Block.BlockGTNEWireCoil;
 import com.gtnecore.common.Block.GTNEMetaBlocks;
+import com.gtnecore.common.Block.elevator.ElevatorCasingTiered;
 import com.gtnecore.common.CommonProxy;
 import com.gtnecore.common.metatileentities.GTNEMetaTileEntities;
 import com.gtnecore.modules.GTNEModules;
@@ -56,6 +59,10 @@ public class CoreModule implements IGTNEModule {
 
         for (BlockGTNEWireCoil.CoilType type : BlockGTNEWireCoil.CoilType.values()) {
             HEATING_COILS.put(GTNEMetaBlocks.BLOCK_GTNE_WIRE_COIL.getState(type), type);
+        }
+
+        for (ElevatorCasingTiered.CasingType type : ElevatorCasingTiered.CasingType.values()) {
+            ELEVATOR_MOTORS.put(ELEVATOR_CASING_TIERED.getState(type), type);
         }
     }
 }

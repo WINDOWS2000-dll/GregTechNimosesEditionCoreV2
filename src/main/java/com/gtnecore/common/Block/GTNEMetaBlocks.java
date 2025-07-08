@@ -31,6 +31,8 @@ public class GTNEMetaBlocks {
     @SideOnly(Side.CLIENT)
     public static void registerItemModels() {
         BLOCK_GTNE_WIRE_COIL.onModelRegister();
+        registerItemModel(ELEVATOR_CASING);
+        registerItemModel(ELEVATOR_CASING_TIERED);
     }
 
     @SideOnly(Side.CLIENT)
