@@ -9,35 +9,35 @@
   "variants": {
     "variant": {
       "elevator_motor_1": {
-        "model": "minecraft:cube_colum",
+        "model": "minecraft:cube_column",
         "textures": {
           "end": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/motor",
           "side": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/1"
         }
       },
       "elevator_motor_2": {
-        "model": "minecraft:cube_colum",
+        "model": "minecraft:cube_column",
         "textures": {
           "end": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/motor",
           "side": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/2"
         }
       },
       "elevator_motor_3": {
-        "model": "minecraft:cube_colum",
+        "model": "minecraft:cube_column",
         "textures": {
           "end": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/motor",
           "side": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/3"
         }
       },
       "elevator_motor_4": {
-        "model": "minecraft:cube_colum",
+        "model": "minecraft:cube_column",
         "textures": {
           "end": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/motor",
           "side": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/4"
         }
       },
       "elevator_motor_5": {
-        "model": "minecraft:cube_colum",
+        "model": "minecraft:cube_column",
         "textures": {
           "end": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/motor",
           "side": "gregtech:blocks/casing/multiblockcasings/spaceelevator/tiered/5"

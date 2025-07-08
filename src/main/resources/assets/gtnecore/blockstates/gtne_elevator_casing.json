@@ -21,14 +21,14 @@
         }
       },
       "elevator_internal": {
-        "model": "minecraft:cube_colum",
+        "model": "minecraft:cube_column",
         "textures": {
           "end": "gregtech:blocks/casing/multiblockcasings/spaceelevator/elevator_internal",
           "side": "gregtech:blocks/casing/multiblockcasings/spaceelevator/elevator_internal_side"
         }
       },
       "elevator_support": {
-        "model": "minecraft:cube_colum",
+        "model": "minecraft:cube_column",
         "textures": {
           "end": "gregtech:blocks/casing/multiblockcasings/spaceelevator/elevator_support",
           "side": "gregtech:blocks/casing/multiblockcasings/spaceelevator/elevator_support_side"
