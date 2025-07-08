@@ -7,13 +7,10 @@ import static gregtech.api.util.RelativeDirection.FRONT;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -22,26 +19,22 @@ import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.IOpticalComputationHatch;
 import gregtech.api.capability.IOpticalComputationProvider;
 import gregtech.api.capability.impl.EnergyContainerList;
-import gregtech.api.gui.GuiTextures;
-import gregtech.api.gui.ModularUI;
-import gregtech.api.gui.widgets.AdvancedTextWidget;
-import gregtech.api.gui.widgets.ClickButtonWidget;
-import gregtech.api.gui.widgets.ImageCycleButtonWidget;
-import gregtech.api.gui.widgets.ImageWidget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
+import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
+import gregtech.api.metatileentity.multiblock.ui.MultiblockUIFactory;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.pattern.TraceabilityPredicate;
-import gregtech.api.util.Mods;
-import gregtech.api.util.TextComponentUtil;
+import gregtech.api.util.KeyUtil;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
 
+import com.gtnecore.api.ModularUI.GTNEGUITextures;
 import com.gtnecore.api.blocks.IElevatorMotorTier;
 import com.gtnecore.api.metatileentity.multiblocks.ISpaceElevatorProvider;
 import com.gtnecore.api.metatileentity.multiblocks.ISpaceElevatorReceiver;
@@ -51,17 +44,19 @@ import com.gtnecore.common.Block.elevator.ElevatorCasing;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.jetbrains.annotations.NotNull;
 
+import com.cleanroommc.modularui.value.sync.BooleanSyncValue;
+import com.cleanroommc.modularui.widgets.SlotGroupWidget;
+import com.cleanroommc.modularui.widgets.ToggleButton;
+import com.cleanroommc.modularui.widgets.layout.Flow;
+
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.render.pipeline.IVertexOperation;
 import codechicken.lib.vec.Matrix4;
-import micdoodle8.mods.galacticraft.core.entities.player.GCPlayerStats;
-import micdoodle8.mods.galacticraft.core.util.WorldUtil;
 
 public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase implements ISpaceElevatorProvider {
 
@@ -72,6 +67,8 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
     protected int motorTier = 0;
 
     private boolean isExtended = false;
+
+    private MultiblockUIBuilder.InternalSyncer syncer;
 
     private final Collection<ISpaceElevatorReceiver> spaceElevatorReceivers = ConcurrentHashMap.newKeySet(); // TODO fix
                                                                                                              // by using
@@ -261,6 +258,7 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
+        initializeAbilities();
         Object type = context.get("ElevatorMotorTier");
         if (type instanceof IElevatorMotorTier) {
             this.motorTier = ((IElevatorMotorTier) type).getTier() + 1;
@@ -331,7 +329,9 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
             return true;
         });
     }
+    // spotless:off
 
+    /*
     @Override
     protected ModularUI createUI(EntityPlayer entityPlayer) {
         return createUITemplate(entityPlayer).build(getHolder(), entityPlayer);
@@ -416,21 +416,93 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
             }
         }
     }
+    //MUI1 End
 
-    /*
-     * @Override
-     * protected void configureDisplayText(MultiblockUIBuilder builder) {
-     * builder.addCustom((Manager, Syncer) -> {
-     * if (this.isStructureFormed()) {
-     * int motorTier = Syncer.syncInt(this.motorTier);
-     * int getMaxModules = Syncer.syncInt(this.getMaxModules());
-     * Manager.add(KeyUtil.lang(TextFormatting.BLUE, "gtne.machine.space_elevator.motor_tier", motorTier));
-     * Manager.add(KeyUtil);
-     * }
-     * })
-     * }
      */
 
+    //MUI2 Start
+
+    @Override
+    protected MultiblockUIFactory createUIFactory() {
+
+        var playerInv = SlotGroupWidget.playerInventory(0);
+        playerInv.left(0);
+
+        BooleanSyncValue extendableSync = new BooleanSyncValue(this::isExtended, this::setExtended);
+
+        return new MultiblockUIFactory(this)
+
+                .configureDisplayText(this::configureDisplayText)
+                .disableButtons()
+                .disablePlayerInv()
+                .setSize(198, 206)
+                .setScreenHeight(139)
+                .addScreenChildren((parent, syncManager) -> {
+                    parent.child(Flow.row()
+                            .debugName("space_elevator_gui_bottom")
+                            .top(149)
+                            .coverChildrenHeight()
+                            .child(playerInv));
+                    parent.child(Flow.row()
+                            .debugName("button_col")
+                            .top(149)
+                            .right(4)
+                            .size(18, 72)
+                            .child(new ToggleButton()
+                                    .debugName("space_elevator_extend")
+                                    .size(18)
+                                    .overlay(true, GTNEGUITextures.BUTTON_ELEVATOR_EXTEND[1])
+                                    .overlay(false, GTNEGUITextures.BUTTON_ELEVATOR_EXTEND[0])
+                                    .value(extendableSync)
+                                    .marginTop(1)));
+                });
+
+
+    }
+
+    @Override
+    protected void configureDisplayText(MultiblockUIBuilder builder) {
+        builder.setWorkingStatus(true, isStructureFormed())
+                .addCustom(((keyManager, syncer) -> {
+                    if (!isActive())
+                        return;
+                    //Motor Tier
+                    keyManager.add(KeyUtil.lang(TextFormatting.BLUE,
+                            "gtne.machine.space_elevator.motor_tier",
+                            KeyUtil.number(syncer.syncInt(this.motorTier))));
+
+                    //Max Module Count
+                    int maxModuleCount = syncer.syncInt(getMaxModules());
+                    keyManager.add(KeyUtil.lang(TextFormatting.YELLOW,
+                            "gtne.machine.space_elevator.max_modules",
+                            maxModuleCount));
+
+                    //Current Module Count
+                    int currentModuleCount = syncer.syncInt(getModuleCount());
+                    boolean moduleIsEmpty = syncer.syncBoolean(this.spaceElevatorReceivers.isEmpty());
+                    if (moduleIsEmpty) {
+                        keyManager.add(KeyUtil.lang(TextFormatting.RED,
+                                "gtne.machine.space_elevator.modules.none"));
+                    } else {
+                        keyManager.add(KeyUtil.lang(currentModuleCount < maxModuleCount ? TextFormatting.AQUA : TextFormatting.YELLOW,
+                                "gtne.machine.space_elevator.total_modules", currentModuleCount));
+                    }
+
+                }))
+                .addWorkingStatusLine();
+    }
+
+    @Override
+    protected void configureWarningText(MultiblockUIBuilder builder) {
+        super.configureWarningText(builder);
+    }
+
+    @Override
+    protected void configureErrorText(MultiblockUIBuilder builder) {
+        super.configureErrorText(builder);
+    }
+
+    // spotless:on
     private boolean isExtended() {
         return this.isExtended;
     }

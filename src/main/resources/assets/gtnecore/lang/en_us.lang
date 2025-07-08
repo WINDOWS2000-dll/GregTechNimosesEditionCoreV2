@@ -73,7 +73,7 @@ gregtech.multiblock.universal.vom.temperature=Temperature: %sK
 gregtech.multiblock.universal.vom.max_temperature=Max Temperature: %sK
 
 #SpaceElevator
-gtne.machine.space_elevator.name=§dSpace Elevator
+gtnecore.machine.space_elevator.name=§bSpace Elevator
 gtne.machine.space_elevator.max_modules=Maximum Installed modules : %s
 gtne.machine.space_elevator.total_modules=Modules Installed Total : %s
 gtne.machine.space_elevator.modules.none=No Modules Installed!
@@ -85,7 +85,7 @@ gtne.gui.multiblock.space_elevator.enable_all_modules=Enable All Modules
 gtne.gui.multiblock.space_elevator.disable_all_modules=Disable All Modules
 
 #Mining Module
-space_mining.name=Space Mining
+space_mining.name=§bSpace Mining
 gtne.jei.space_miner.total_eu=Total: %s
 gtne.jei.space_miner.eut=Usage: %s EU/t (%s)
 gtne.jei.space_miner.duration=Duration: %s secs

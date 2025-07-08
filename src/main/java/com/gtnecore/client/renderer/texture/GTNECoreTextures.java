@@ -25,6 +25,9 @@ public class GTNECoreTextures {
     public static SimpleOverlayRenderer MULTIPART_WIRELESS_ENERGY_1048576x;
     /////////////////////////////////////////////////////////////////////////////
     public static SimpleOverlayRenderer ELEVATOR_CASING;
+    public static SimpleOverlayRenderer ASSEMBLER_MODULE_OVERLAY;
+    public static SimpleOverlayRenderer PUMP_MODULE_OVERLAY;
+    public static SimpleOverlayRenderer MINING_MODULE_OVERLAY;
 
     // GUI Widget
     public static final TextureArea BUTTON_ELEVATOR_EXTENSION = TextureArea
@@ -52,6 +55,10 @@ public class GTNECoreTextures {
         MULTIPART_WIRELESS_ENERGY_262144x = new SimpleOverlayRenderer("wireless_hatch/overlay_front.262144x");
         MULTIPART_WIRELESS_ENERGY_1048576x = new SimpleOverlayRenderer("wireless_hatch/overlay_front.1048576x");
 
+        // Space Elevator
         ELEVATOR_CASING = new SimpleOverlayRenderer("casing/multiblockcasings/spaceelevator/elevator_base");
+        ASSEMBLER_MODULE_OVERLAY = new SimpleOverlayRenderer("gtnecore:overlay/elevator/assembler");
+        PUMP_MODULE_OVERLAY = new SimpleOverlayRenderer("gtnecore:overlay/elevator/pump");
+        MINING_MODULE_OVERLAY = new SimpleOverlayRenderer("gtnecore:overlay/elevator/mining");
     }
 }

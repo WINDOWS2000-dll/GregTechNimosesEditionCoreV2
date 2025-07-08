@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import com.gtnecore.GTNECoreValues;
+import com.gtnecore.api.ModularUI.GTNEGUITextures;
 import com.gtnecore.api.module.GTNEModule;
 import com.gtnecore.api.module.IGTNEModule;
 import com.gtnecore.common.Block.BlockGTNEWireCoil;
@@ -51,6 +52,9 @@ public class CoreModule implements IGTNEModule {
     public void preInit(FMLPreInitializationEvent preInitEvent) {
         proxy.preInit(preInitEvent);
         proxy.preLoad();
+
+        // MUI Initialization
+        GTNEGUITextures.init();
 
         GTNEMetaBlocks.init();
 
