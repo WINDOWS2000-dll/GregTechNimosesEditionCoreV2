@@ -6,7 +6,6 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import com.gtnecore.api.capabilities.Wireless.WirelessEUNetworkDataBase;
 import com.gtnecore.api.capabilities.Wireless.WirelessEUNetworkManager;
 import com.gtnecore.api.capabilities.Wireless.WirelessEUNetworkNode;
-import com.gtnecore.api.capabilities.Wireless.WorldBlockPos;
 import com.gtnecore.common.metatileentities.multi.multiblockpart.MetaTileEntityWirelessEnergyHatch;
 
 import java.math.BigInteger;
@@ -42,21 +41,6 @@ public class EnergyContainerWireless extends EnergyContainerHandler {
                             "wirelessNetwork");
                     dataBase = WirelessEUNetworkDataBase.get(world);
                     node = dataBase.getNetWork(((MetaTileEntityWirelessEnergyHatch) metaTileEntity).WirelessID);
-                }
-                {
-                    var machine = new WorldBlockPos(metaTileEntity.getWorld().provider.getDimension(),
-                            metaTileEntity.getPos());
-                    if (!node.machines.contains(machine)) {
-                        node.machines.add(machine);
-                        WirelessEUNetworkDataBase finalDataBase = dataBase;
-                        WirelessEUNetworkNode finalNode = node;
-                        dataBase.getNetworks().keySet().forEach(x -> {
-                            var del = finalDataBase.getNetWork(x);
-                            if (del.getNetworkID() != finalNode.getNetworkID()) {
-                                del.machines.remove(machine);
-                            }
-                        });
-                    }
                 }
                 // add Energy Function
                 if (this.getInputVoltage() == 0) {

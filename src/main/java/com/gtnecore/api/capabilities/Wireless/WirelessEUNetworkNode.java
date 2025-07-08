@@ -1,13 +1,7 @@
 package com.gtnecore.api.capabilities.Wireless;
 
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class WirelessEUNetworkNode {
 
@@ -20,8 +14,6 @@ public class WirelessEUNetworkNode {
     private BigInteger energy;
 
     private boolean isOpen;
-
-    public List<WorldBlockPos> machines = new ArrayList<>();
 
     public WirelessEUNetworkNode(UUID networkowner, int id, String name) {
         this.networkownerUUID = networkowner;
@@ -61,30 +53,6 @@ public class WirelessEUNetworkNode {
 
     public void setOpen(boolean open) {
         isOpen = open;
-    }
-
-    public synchronized boolean addMachine(World world, BlockPos pos) {
-        WorldBlockPos worldBlockPos = new WorldBlockPos(
-                world.provider.getDimension(),
-                pos);
-        if (!machines.contains(worldBlockPos)) {
-            return machines.add(worldBlockPos);
-        }
-        return false;
-    }
-
-    public synchronized boolean addMachine(WorldBlockPos worldBlockPos) {
-        if (!machines.contains(worldBlockPos)) {
-            return machines.add(worldBlockPos);
-        }
-        return false;
-    }
-
-    public synchronized List<BlockPos> getMachineInDimention(int dimention) {
-        return machines.stream()
-                .filter(worldBlockPos -> worldBlockPos.getDimention() == dimention)
-                .map(WorldBlockPos::getPos)
-                .collect(Collectors.toList());
     }
 
     public BigInteger modifyEnergy(BigInteger delta) {

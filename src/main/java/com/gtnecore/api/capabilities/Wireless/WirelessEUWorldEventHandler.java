@@ -4,12 +4,7 @@ import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-import gregtech.api.util.GTUtility;
-
 import com.gtnecore.api.util.GTNELogger;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class WirelessEUWorldEventHandler {
 
@@ -30,24 +25,6 @@ public class WirelessEUWorldEventHandler {
                 event.world.provider.getDimension() == 0) {
             if (event.world.getTotalWorldTime() % 600 == 0) {
                 WirelessEUNetworkDataBase dataBase = WirelessEUNetworkDataBase.get(event.world);
-                dataBase.getNetworks().keySet().forEach(x -> {
-                    var net = dataBase.getNetWork(x);
-                    if (net != null) {
-                        List<WorldBlockPos> pos = new ArrayList<>();
-                        for (var machine : net.machines) {
-                            if (machine.getDimention() == event.world.provider.getDimension() &&
-                                    event.world.isBlockLoaded(machine.getPos())) {
-                                var mte = GTUtility.getMetaTileEntity(event.world, machine.getPos());
-                                if (mte == null) {
-                                    pos.add(machine);
-                                }
-                            }
-                        }
-                        for (var remove : pos) {
-                            net.machines.remove(remove);
-                        }
-                    }
-                });
                 if (dataBase.isDirty()) {
                     dataBase.markDirty();
                 }

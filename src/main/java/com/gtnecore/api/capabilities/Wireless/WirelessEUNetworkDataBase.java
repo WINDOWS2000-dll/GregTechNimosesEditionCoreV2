@@ -40,11 +40,6 @@ public class WirelessEUNetworkDataBase extends WorldSavedData {
             node.setEnergy(new BigInteger(nodeTag.getString("energy")));
             node.setOpen(nodeTag.getBoolean("isOpen"));
 
-            NBTTagList machineList = data.getTagList("machines", 10);
-            for (NBTBase tagBase : machineList) {
-                node.addMachine(WorldBlockPos.readFromNBT((NBTTagCompound) tagBase));
-            }
-
             networks.put(node.getNetworkID(), node);
 
         }
@@ -62,12 +57,6 @@ public class WirelessEUNetworkDataBase extends WorldSavedData {
             nodeTag.setString("energy", node.getEnergy().toString());
             nodeTag.setBoolean("isOpen", node.isOpen());
 
-            NBTTagList machineList = new NBTTagList();
-            for (WorldBlockPos worldBlockPos : node.machines) {
-                machineList.appendTag(worldBlockPos.writeToNBT());
-            }
-
-            data.setTag("machines", machineList);
             list.appendTag(nodeTag);
         }
 
