@@ -5,10 +5,6 @@ import static gregtech.api.unification.material.Materials.Neutronium;
 import static gregtech.api.util.RelativeDirection.*;
 import static gregtech.api.util.RelativeDirection.FRONT;
 
-import com.cleanroommc.modularui.value.sync.GenericSyncValue;
-import com.cleanroommc.modularui.widgets.CycleButtonWidget;
-import gregtech.api.gui.widgets.ClickButtonWidget;
-import gregtech.api.mui.GTGuiTextures;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
@@ -30,6 +26,7 @@ import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.MultiblockWithDisplayBase;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIBuilder;
 import gregtech.api.metatileentity.multiblock.ui.MultiblockUIFactory;
+import gregtech.api.mui.GTGuiTextures;
 import gregtech.api.pattern.BlockPattern;
 import gregtech.api.pattern.FactoryBlockPattern;
 import gregtech.api.pattern.PatternMatchContext;
