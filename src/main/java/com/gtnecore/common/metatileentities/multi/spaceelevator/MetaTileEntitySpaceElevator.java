@@ -5,6 +5,10 @@ import static gregtech.api.unification.material.Materials.Neutronium;
 import static gregtech.api.util.RelativeDirection.*;
 import static gregtech.api.util.RelativeDirection.FRONT;
 
+import com.cleanroommc.modularui.value.sync.GenericSyncValue;
+import com.cleanroommc.modularui.widgets.CycleButtonWidget;
+import gregtech.api.gui.widgets.ClickButtonWidget;
+import gregtech.api.mui.GTGuiTextures;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
@@ -67,6 +71,8 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
     protected int motorTier = 0;
 
     private boolean isExtended = false;
+
+    private boolean isAllModuleActive = false;
 
     private MultiblockUIBuilder.InternalSyncer syncer;
 
@@ -430,6 +436,8 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
 
         BooleanSyncValue extendableSync = new BooleanSyncValue(this::isExtended, this::setExtended);
 
+        BooleanSyncValue isModuleActiveSync = new BooleanSyncValue(this::isAllModuleActive, this::setAllModuleActive);
+
         return new MultiblockUIFactory(this)
 
                 .configureDisplayText(this::configureDisplayText)
@@ -454,7 +462,14 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
                                     .overlay(true, GTNEGUITextures.BUTTON_ELEVATOR_EXTEND[1])
                                     .overlay(false, GTNEGUITextures.BUTTON_ELEVATOR_EXTEND[0])
                                     .value(extendableSync)
-                                    .marginTop(1)));
+                                    .marginTop(1))
+                            .child(new ToggleButton()
+                                    .debugName("space_elevator_module_switch")
+                                    .size(18)
+                                    .overlay(true, GTGuiTextures.BUTTON_POWER[1])
+                                    .overlay(false, GTGuiTextures.BUTTON_POWER[0])
+                                    .value(isModuleActiveSync)
+                                    .marginTop(2)));
                 });
 
 
@@ -575,12 +590,17 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
         return this.spaceElevatorReceivers.size();
     }
 
-    private void disableAllModules() {
-        this.spaceElevatorReceivers.forEach(ISpaceElevatorReceiver::sentWorkingDisabled);
+    private boolean isAllModuleActive() {
+        return this.isAllModuleActive;
     }
 
-    private void enableAllModules() {
-        this.spaceElevatorReceivers.forEach(ISpaceElevatorReceiver::sentWorkingEnabled);
+    private void setAllModuleActive(Boolean isModuleActive) {
+        this.isAllModuleActive = isModuleActive;
+        if (isAllModuleActive) {
+            this.spaceElevatorReceivers.forEach(ISpaceElevatorReceiver::sentWorkingEnabled);
+        } else {
+            this.spaceElevatorReceivers.forEach(ISpaceElevatorReceiver::sentWorkingDisabled);
+        }
     }
 
     @Override
