@@ -459,14 +459,14 @@ public class MetaTileEntitySpaceElevator extends MultiblockWithDisplayBase imple
                                     .overlay(true, GTNEGUITextures.BUTTON_ELEVATOR_EXTEND[1])
                                     .overlay(false, GTNEGUITextures.BUTTON_ELEVATOR_EXTEND[0])
                                     .value(extendableSync)
-                                    .marginTop(1))
+                                    .pos(0, 0))
                             .child(new ToggleButton()
                                     .debugName("space_elevator_module_switch")
                                     .size(18)
                                     .overlay(true, GTGuiTextures.BUTTON_POWER[1])
                                     .overlay(false, GTGuiTextures.BUTTON_POWER[0])
                                     .value(isModuleActiveSync)
-                                    .marginTop(2)));
+                                    .pos(0, 19)));
                 });
 
 
